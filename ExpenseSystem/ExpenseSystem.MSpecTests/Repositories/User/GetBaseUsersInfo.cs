@@ -7,17 +7,13 @@ using ExpenseSystem.Repositories;
 using ExpenseSystem.Model;
 using ExpenseSystem.Entities;
 
-namespace ExpenseSystem.MSpecTests.Repositories.User.GetBaseUsersInfo
+namespace ExpenseSystem.MSpecTests.Repositories.User
 {
-    public class when_get_list_of_users
+    public class when_get_list_of_users : UserBaseTester
     {
-        Establish a_user_repository = () => userRepository = new UserRepository(new ExpenseSystemEntities());
-
         Because of = () => result = userRepository.GetBaseUsersInfo();
 
         It should_contains_list_of_users = () => result.ShouldNotBeNull();
-
-        static UserRepository userRepository;
         static List<BaseUserInfo> result;
     }
 }

@@ -28,7 +28,7 @@ namespace ExpenseSystem.Controllers
             if (ModelState.IsValid)
             {
                 UserRepository userRepository = new UserRepository(Context);
-                Dto.User user = userRepository.GetUserByCredentials(logOnViewModel.Login, logOnViewModel.Password);
+                Dto.User user = userRepository.GetUserByCredentials(logOnViewModel.Login, logOnViewModel.Password).Object;
                 if (user != null)
                 {
                     SessionVars.UserId = user.Id;

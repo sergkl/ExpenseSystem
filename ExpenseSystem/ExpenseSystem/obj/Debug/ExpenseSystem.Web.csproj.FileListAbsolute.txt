@@ -11,3 +11,16 @@ D:\Projects\ExpenseSystem\ExpenseSystem\obj\Debug\ExpenseSystem.dll
 D:\Projects\ExpenseSystem\ExpenseSystem\obj\Debug\ExpenseSystem.pdb
 D:\Projects\ExpenseSystem\ExpenseSystem\bin\ExpenseSystem.Common.dll
 D:\Projects\ExpenseSystem\ExpenseSystem\bin\ExpenseSystem.Common.pdb
+D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem\bin\ExpenseSystem.dll
+D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem\bin\ExpenseSystem.pdb
+D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem\bin\ExpenseSystem.Entities.dll
+D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem\bin\ExpenseSystem.Model.dll
+D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem\bin\ExpenseSystem.Repositories.dll
+D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem\bin\ExpenseSystem.Common.dll
+D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem\bin\ExpenseSystem.Entities.pdb
+D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem\bin\ExpenseSystem.Model.pdb
+D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem\bin\ExpenseSystem.Repositories.pdb
+D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem\bin\ExpenseSystem.Common.pdb
+D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem\obj\Debug\ExpenseSystem.dll
+D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem\obj\Debug\ExpenseSystem.pdb

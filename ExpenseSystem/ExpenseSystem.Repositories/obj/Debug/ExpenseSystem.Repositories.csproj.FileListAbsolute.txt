@@ -9,3 +9,14 @@ D:\Projects\ExpenseSystem\ExpenseSystem.Repositories\obj\Debug\ExpenseSystem.Rep
 D:\Projects\ExpenseSystem\ExpenseSystem.Repositories\obj\Debug\ExpenseSystem.Repositories.pdb
 D:\Projects\ExpenseSystem\ExpenseSystem.Repositories\bin\Debug\ExpenseSystem.Common.dll
 D:\Projects\ExpenseSystem\ExpenseSystem.Repositories\bin\Debug\ExpenseSystem.Common.pdb
+D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem.Repositories\bin\Debug\ExpenseSystem.Repositories.dll
+D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem.Repositories\bin\Debug\ExpenseSystem.Repositories.pdb
+D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem.Repositories\bin\Debug\ExpenseSystem.Common.dll
+D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem.Repositories\bin\Debug\ExpenseSystem.Entities.dll
+D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem.Repositories\bin\Debug\ExpenseSystem.Model.dll
+D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem.Repositories\bin\Debug\ExpenseSystem.Common.pdb
+D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem.Repositories\bin\Debug\ExpenseSystem.Entities.pdb
+D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem.Repositories\bin\Debug\ExpenseSystem.Model.pdb
+D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem.Repositories\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem.Repositories\obj\Debug\ExpenseSystem.Repositories.dll
+D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem.Repositories\obj\Debug\ExpenseSystem.Repositories.pdb

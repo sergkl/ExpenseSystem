@@ -8,33 +8,25 @@ using ExpenseSystem.Model;
 using ExpenseSystem.Repositories.Responses;
 using Dto = ExpenseSystem.Entities;
 
-namespace ExpenseSystem.MSpecTests.Repositories.User.GetById
+namespace ExpenseSystem.MSpecTests.Repositories.User
 {
-    public class when_user_provide_userId_which_does_not_exist
+    public class when_user_provide_userId_which_does_not_exist : UserBaseTester
     {
-        Establish a_user_repository = () => userRepository = new UserRepository(new ExpenseSystemEntities());
-
         Because of = () => result = userRepository.GetById(-5, -5);
 
         It should_contains_response = () => result.ShouldNotBeNull();
         It should_return_null_for_user = () => result.Object.ShouldBeNull();
         It should_contains_error_indicator_as_true = () => result.IsError.ShouldEqual(true);
-
-        static UserRepository userRepository;
         static GetObjectResponse<Dto.User> result;
     }
 
-    public class when_user_provide_userId_which_exists
+    public class when_user_provide_userId_which_exists : UserBaseTester
     {
-        Establish a_user_repository = () => userRepository = new UserRepository(new ExpenseSystemEntities());
-
         Because of = () => result = userRepository.GetById(1, 1);
 
         It should_contains_response = () => result.ShouldNotBeNull();
         It should_return_null_for_user = () => result.Object.ShouldNotBeNull();
         It should_contains_error_indicator_as_true = () => result.IsError.ShouldEqual(false);
-
-        static UserRepository userRepository;
         static GetObjectResponse<Dto.User> result;
     }
 }

@@ -106,13 +106,21 @@ namespace ExpenseSystem.Repositories
         /// <param name="login">Login (user name)</param>
         /// <param name="password">Password</param>
         /// <returns>Execution result: if it is true then user has been passed validation otherwise it returns false</returns>
-        public User GetUserByCredentials(string login, string password)
+        public GetObjectResponse<User> GetUserByCredentials(string login, string password)
         {
+            GetObjectResponse<User> response = new GetObjectResponse<User>();
             User user = null;
             var users = context.Users.Where(a => a.Login == login && a.Password == password);
             if (users.Count() == 1)
-                user = users.First();
-            return user;
+            {
+                response.Object = users.First();
+            }
+            else
+            {
+                response.IsError = true;
+                response.Errors.Add(Error.CredentialsDontExistsInTheSystem);
+            }
+            return response;
         }
 
         public static Func<ExpenseSystemEntities, string, IQueryable<User>>

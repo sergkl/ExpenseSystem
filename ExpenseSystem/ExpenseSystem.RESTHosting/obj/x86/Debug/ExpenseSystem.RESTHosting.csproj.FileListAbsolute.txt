@@ -6,3 +6,11 @@ D:\Projects\ExpenseSystem\ExpenseSystem.RESTHosting\bin\Debug\RESTService.pdb
 D:\Projects\ExpenseSystem\ExpenseSystem.RESTHosting\obj\x86\Debug\ResolveAssemblyReference.cache
 D:\Projects\ExpenseSystem\ExpenseSystem.RESTHosting\obj\x86\Debug\ExpenseSystem.RESTHosting.exe
 D:\Projects\ExpenseSystem\ExpenseSystem.RESTHosting\obj\x86\Debug\ExpenseSystem.RESTHosting.pdb
+D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem.RESTHosting\bin\Debug\ExpenseSystem.RESTHosting.exe.config
+D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem.RESTHosting\bin\Debug\ExpenseSystem.RESTHosting.exe
+D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem.RESTHosting\bin\Debug\ExpenseSystem.RESTHosting.pdb
+D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem.RESTHosting\bin\Debug\RESTService.dll
+D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem.RESTHosting\bin\Debug\RESTService.pdb
+D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem.RESTHosting\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem.RESTHosting\obj\x86\Debug\ExpenseSystem.RESTHosting.exe
+D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem.RESTHosting\obj\x86\Debug\ExpenseSystem.RESTHosting.pdb

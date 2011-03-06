@@ -3,3 +3,8 @@ D:\Projects\ExpenseSystem\RESTService\bin\Debug\RESTService.pdb
 D:\Projects\ExpenseSystem\RESTService\obj\Debug\ResolveAssemblyReference.cache
 D:\Projects\ExpenseSystem\RESTService\obj\Debug\RESTService.dll
 D:\Projects\ExpenseSystem\RESTService\obj\Debug\RESTService.pdb
+D:\Projects\ExpenseSystem\ExpenseSystem\RESTService\bin\Debug\RESTService.dll
+D:\Projects\ExpenseSystem\ExpenseSystem\RESTService\bin\Debug\RESTService.pdb
+D:\Projects\ExpenseSystem\ExpenseSystem\RESTService\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\ExpenseSystem\ExpenseSystem\RESTService\obj\Debug\RESTService.dll
+D:\Projects\ExpenseSystem\ExpenseSystem\RESTService\obj\Debug\RESTService.pdb
