@@ -1,2 +1,2 @@
 git@github.com:sergkl/ExpenseSystem.git
-From D folder
+From Projects folder
