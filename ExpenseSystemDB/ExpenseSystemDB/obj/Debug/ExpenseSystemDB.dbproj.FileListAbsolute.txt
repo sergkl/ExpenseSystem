@@ -1,0 +1,8 @@
+D:\Projects\ExpenseSystemDB\ExpenseSystemDB\sql\debug\ExpenseSystemDB.deploymanifest
+D:\Projects\ExpenseSystemDB\ExpenseSystemDB\sql\debug\ExpenseSystemDB.dbschema
+D:\Projects\ExpenseSystemDB\ExpenseSystemDB\obj\Debug\ExpenseSystemDB.dbschema
+D:\Projects\ExpenseSystemDB\ExpenseSystemDB\sql\debug\test_Script.PreDeployment.sql
+D:\Projects\ExpenseSystemDB\ExpenseSystemDB\sql\debug\test_Script.PostDeployment.sql
+D:\Projects\ExpenseSystemDB\ExpenseSystemDB\sql\debug\test_Database.sqlsettings
+D:\Projects\ExpenseSystemDB\ExpenseSystemDB\sql\debug\test_Database.sqldeployment
+D:\Projects\ExpenseSystemDB\ExpenseSystemDB\sql\debug\test_Database.sqlcmdvars

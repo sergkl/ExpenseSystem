@@ -1,0 +1,9 @@
+D:\Projects\ExpenseSystem.Client\ExpenseSystem.Client\bin\Debug\ExpenseSystem.Client.exe
+D:\Projects\ExpenseSystem.Client\ExpenseSystem.Client\bin\Debug\ExpenseSystem.Client.pdb
+D:\Projects\ExpenseSystem.Client\ExpenseSystem.Client\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Projects\ExpenseSystem.Client\ExpenseSystem.Client\obj\x86\Debug\ExpenseSystem.Client.fExpenseSystem.resources
+D:\Projects\ExpenseSystem.Client\ExpenseSystem.Client\obj\x86\Debug\ExpenseSystem.Client.Properties.Resources.resources
+D:\Projects\ExpenseSystem.Client\ExpenseSystem.Client\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\Projects\ExpenseSystem.Client\ExpenseSystem.Client\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\Projects\ExpenseSystem.Client\ExpenseSystem.Client\obj\x86\Debug\ExpenseSystem.Client.exe
+D:\Projects\ExpenseSystem.Client\ExpenseSystem.Client\obj\x86\Debug\ExpenseSystem.Client.pdb

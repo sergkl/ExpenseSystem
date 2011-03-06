@@ -1,0 +1,3 @@
+﻿ALTER TABLE [dbo].[ExpenseRecord]
+    ADD CONSTRAINT [FK_ExpenseRecord_Tag] FOREIGN KEY ([TagId]) REFERENCES [dbo].[Tag] ([Id]) ON DELETE CASCADE ON UPDATE CASCADE;
+
