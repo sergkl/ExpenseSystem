@@ -11,8 +11,7 @@ namespace ExpenseSystem.RESTService
     public interface IRESTDemoServices
     {
         [OperationContract]
-        [WebGet(UriTemplate = Routing.GetClientRoute, BodyStyle = WebMessageBodyStyle.Bare)] 
-        [WebInvoke(UriTemplate = Routing.GetClientRoute, Method = "POST")]
-        string GetClientNameById(string Id);
+        [WebGet(UriTemplate = Routing.GetClientRoute, BodyStyle = WebMessageBodyStyle.Bare)]
+        string GetUserFullName(string Id);
     }
 }

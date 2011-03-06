@@ -7,6 +7,6 @@ namespace ExpenseSystem.RESTService
 {
     public static class Routing
     {
-        public const string GetClientRoute = "/Client/{Id}";
+        public const string GetClientRoute = "/User/{Id}";
     }
 }

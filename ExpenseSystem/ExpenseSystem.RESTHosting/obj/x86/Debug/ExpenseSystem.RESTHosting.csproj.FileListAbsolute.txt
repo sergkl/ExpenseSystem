@@ -14,3 +14,11 @@ D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem.RESTHosting\bin\Debug\REST
 D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem.RESTHosting\obj\x86\Debug\ResolveAssemblyReference.cache
 D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem.RESTHosting\obj\x86\Debug\ExpenseSystem.RESTHosting.exe
 D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem.RESTHosting\obj\x86\Debug\ExpenseSystem.RESTHosting.pdb
+D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem.RESTHosting\bin\Debug\ExpenseSystem.Model.dll
+D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem.RESTHosting\bin\Debug\ExpenseSystem.Repositories.dll
+D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem.RESTHosting\bin\Debug\ExpenseSystem.Entities.dll
+D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem.RESTHosting\bin\Debug\ExpenseSystem.Common.dll
+D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem.RESTHosting\bin\Debug\ExpenseSystem.Model.pdb
+D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem.RESTHosting\bin\Debug\ExpenseSystem.Repositories.pdb
+D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem.RESTHosting\bin\Debug\ExpenseSystem.Entities.pdb
+D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem.RESTHosting\bin\Debug\ExpenseSystem.Common.pdb

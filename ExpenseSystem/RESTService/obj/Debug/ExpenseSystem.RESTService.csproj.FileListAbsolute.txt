@@ -8,3 +8,11 @@ D:\Projects\ExpenseSystem\ExpenseSystem\RESTService\bin\Debug\RESTService.pdb
 D:\Projects\ExpenseSystem\ExpenseSystem\RESTService\obj\Debug\ResolveAssemblyReference.cache
 D:\Projects\ExpenseSystem\ExpenseSystem\RESTService\obj\Debug\RESTService.dll
 D:\Projects\ExpenseSystem\ExpenseSystem\RESTService\obj\Debug\RESTService.pdb
+D:\Projects\ExpenseSystem\ExpenseSystem\RESTService\bin\Debug\ExpenseSystem.Entities.dll
+D:\Projects\ExpenseSystem\ExpenseSystem\RESTService\bin\Debug\ExpenseSystem.Model.dll
+D:\Projects\ExpenseSystem\ExpenseSystem\RESTService\bin\Debug\ExpenseSystem.Repositories.dll
+D:\Projects\ExpenseSystem\ExpenseSystem\RESTService\bin\Debug\ExpenseSystem.Common.dll
+D:\Projects\ExpenseSystem\ExpenseSystem\RESTService\bin\Debug\ExpenseSystem.Entities.pdb
+D:\Projects\ExpenseSystem\ExpenseSystem\RESTService\bin\Debug\ExpenseSystem.Model.pdb
+D:\Projects\ExpenseSystem\ExpenseSystem\RESTService\bin\Debug\ExpenseSystem.Repositories.pdb
+D:\Projects\ExpenseSystem\ExpenseSystem\RESTService\bin\Debug\ExpenseSystem.Common.pdb

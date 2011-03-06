@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Xml.Linq" />
@@ -46,6 +47,24 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RestDemoServices.cs" />
     <Compile Include="Routing.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ExpenseSystem.Common\ExpenseSystem.Common.csproj">
+      <Project>{014B0DAD-2C7B-4656-BBA2-81DF38DD1285}</Project>
+      <Name>ExpenseSystem.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExpenseSystem.Entities\ExpenseSystem.Entities.csproj">
+      <Project>{9DE4038F-4055-45D5-AD4F-FAE8E93DF784}</Project>
+      <Name>ExpenseSystem.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExpenseSystem.Model\ExpenseSystem.Model.csproj">
+      <Project>{9C2D0F74-FD72-4D85-BEB8-5EEB2D49C7DE}</Project>
+      <Name>ExpenseSystem.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExpenseSystem.Repositories\ExpenseSystem.Repositories.csproj">
+      <Project>{DA504E0F-CE8B-4202-AD18-C39FDDF8241D}</Project>
+      <Name>ExpenseSystem.Repositories</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
