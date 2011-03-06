@@ -115,6 +115,7 @@
     <Content Include="Scripts\ExpenseSystem\Global.js" />
     <Content Include="Scripts\ExpenseSystem\Home.js" />
     <Content Include="Scripts\ExpenseSystem\Report.js" />
+    <Content Include="Scripts\jquery.tmpl.js" />
     <Content Include="Scripts\jquery.treeview.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

@@ -62,5 +62,4 @@ fieldset legend {
 #thDateStamp { width: 150px; }
 #thAmountSpent { width: 150px; }
 #thDescription { width: 300px; }
-.templateExpenseRecord { display: none; }
 #tagsTreeArea input[type=button], #expensesRecordsArea input[type=button] { width: 60px; }

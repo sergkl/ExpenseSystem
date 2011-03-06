@@ -4,7 +4,26 @@
 }
 
 @section HeadContent {
+    <script src="@Url.Content("~/Scripts/jquery.tmpl.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Scripts/ExpenseSystem/Home.js")" type="text/javascript"></script>
+    <script id="expenseRecordTemplate" type="text/x-jquery-tmpl">
+        <tr class="expenseRecord">
+            <td class="tdDescription">
+                <span>${Description}</span>
+            </td>
+            <td class="tdPrice">
+                <span>${Price}</span>
+            </td>
+            <td class="tdDateStamp">
+                <span>${DateStamp}</span>
+            </td>
+            <td align="right">
+                <input type="button" value="Save" class="saveExpenseRecordButton hidden" />
+                <input type="button" value="Edit" class="editExpenseRecordButton" />
+                <input type="button" value="Delete" class="deleteExpenseRecordButton" />
+            </td>
+        </tr>
+    </script>
 }
 
 @section BodyContent {

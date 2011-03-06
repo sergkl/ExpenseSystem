@@ -12,11 +12,11 @@
 });
 
 function addExpenseRecord() {
-    var newRecord = $('.templateExpenseRecord').clone();
-    newRecord.removeClass('templateExpenseRecord');
-    $('.expenseRecord:last').after(newRecord);
-    assignExpenseRecordEvents(newRecord);
-    editExpenseRecord(newRecord);
+    var newExpenseRecord = { Description: "", Price: "0", DateStamp: "" };
+    var expenseRecordTemplate = $("#expenseRecordTemplate").tmpl(newExpenseRecord);
+    $('.expenseRecord:last').after(expenseRecordTemplate);
+    assignExpenseRecordEvents(expenseRecordTemplate);
+    editExpenseRecord(expenseRecordTemplate);
 }
 
 function deleteExpenseRecord(recordRow) {
@@ -166,7 +166,7 @@ function editTag() {
 
 function deleteTag() {
     selectedLi = $('#tagsTree .selected');
-    $.get("/Home/DeleteTag",
+    $.post("/Home/DeleteTag",
             'tagId=' + selectedLi.attr("id").replace("tagId_", ""),
             function (result) {
                 if (!result.IsError) {
@@ -194,7 +194,7 @@ function deleteTag() {
 function cancelEditing(editingControl) {
     if ($(editingControl).val() != "") {
         var valueArea = $(editingControl).parent().find("> .tagValue");
-        $.get("/Home/ChangeTagName",
+        $.post("/Home/ChangeTagName",
             'tagId=' + valueArea.parent().attr("id").replace("tagId_", "") + '&tagName=' + $(editingControl).val(),
             function (result) {
                 if (!result.IsError) {
@@ -212,7 +212,7 @@ function cancelEditing(editingControl) {
 
 function addTag() {
     if ($('#tagsTree').length == 0) {   //If we don't have tree at all.
-        $.get("/Home/AddTag",
+        $.post("/Home/AddTag",
             'name=New node&parentId=null',
             function (result) {
                 if (!result.IsError) {
@@ -240,7 +240,7 @@ function addTag() {
         selectedLi = $('#tagsTree .selected');
         if (selectedLi.length > 0) {
 
-            $.get("/Home/AddTag",
+            $.post("/Home/AddTag",
             'name=New node&parentId=' + selectedLi.attr("id").replace("tagId_", ""),
             function (result) {
                 if (!result.IsError) {

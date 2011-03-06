@@ -64,7 +64,7 @@ namespace ExpenseSystem.Repositories
         public Response Delete(int userId, int expenseRecordId)
         {
             Response response = new Response(); //TODO: Implement validation for it and other repository methods. I didn't have enough time to do it :(
-            context.ExpenseRecords.DeleteObject(GetById(userId, expenseRecordId).Object);
+            Delete(userId, GetById(userId, expenseRecordId).Object);
             return response;
         }
 
