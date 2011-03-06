@@ -1,2 +1,1 @@
-git@github.com:sergkl/Graduates.git
-I am testing updating.
+git@github.com:sergkl/ExpenseSystem.git
