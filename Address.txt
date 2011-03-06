@@ -1,5 +1,1 @@
 git@github.com:sergkl/ExpenseSystem.git
-qwer
-From Projects folder
-S
-qwer
