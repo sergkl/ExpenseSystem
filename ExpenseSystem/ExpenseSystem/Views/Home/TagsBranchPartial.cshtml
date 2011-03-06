@@ -1,0 +1,14 @@
+﻿@model IList<ExpenseSystem.Entities.Tag>
+
+@foreach (var tag in Model)
+{
+    <li id="@string.Format("tagId_{0}", tag.Id)">
+        <div class="tagValue">@tag.Name</div>
+    @if (tag.Children.Count > 0)
+    {
+        <ul>
+            @Html.Partial("TagsBranchPartial", tag.Children.ToList())
+        </ul>
+    }
+    </li>
+}

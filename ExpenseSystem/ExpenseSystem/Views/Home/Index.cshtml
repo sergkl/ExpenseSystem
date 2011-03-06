@@ -1,0 +1,29 @@
+﻿@model ExpenseSystem.Entities.Tag
+@{
+	ViewBag.Title = "Editing and viewing records";
+}
+
+@section HeadContent {
+    <script src="@Url.Content("~/Scripts/ExpenseSystem/Home.js")" type="text/javascript"></script>
+}
+
+@section BodyContent {
+    <div id="tagsTreeArea">
+        <h2 id="chooseTagsLabel">Choose tags</h2>
+        @if (Model.Children.Count > 0)
+        {
+        <ul id="tagsTree">
+            @Html.Partial("TagsBranchPartial", Model.Children.ToList())                                                  
+        </ul>
+        }
+        <div>
+            <input id="addTagButton" type="button" value="Add" />
+            <input id="editTagButton" type="button" value="Edit" />
+            <input id="deleteTagButton" type="button" value="Delete" />
+        </div>
+    </div>
+    <div id="expensesRecordsArea">
+        <div id="expensesRecords">
+        </div>
+    </div>
+}

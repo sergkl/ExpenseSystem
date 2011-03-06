@@ -1,0 +1,61 @@
+﻿@model ExpenseSystem.ViewModels.Home.ExpensesViewModel
+@using ExpenseSystem.Entities;
+           
+<h3>@Model.TagsFullWay</h3>
+    <table cellpadding="3" cellspacing="0" width="100%">
+        <tr>
+            <th id="thDescription">
+                Description
+            </th>
+            <th id="thAmountSpent">
+                Amount spent
+            </th>
+            <th id="thDateStamp">
+                Date stamp
+            </th>
+            <th id="thActions">
+                Actions
+            </th>
+        </tr>
+    @foreach (ExpenseRecord expenseRecord in Model.ExpenseRecords)
+    {
+        <tr id="@string.Format("expenseRecord_{0}", expenseRecord.Id)" class="expenseRecord">
+            <td class="tdDescription">
+                <span>@expenseRecord.Description</span>
+            </td>
+            <td class="tdPrice">
+                <span>@expenseRecord.Price</span>
+            </td>
+            <td class="tdDateStamp">
+                <span>@expenseRecord.DateStamp.ToString("MM/dd/yyyy")</span>
+            </td>
+            <td align="right">
+                <input type="button" value="Save" class="saveExpenseRecordButton hidden" />
+                <input type="button" value="Edit" class="editExpenseRecordButton" />
+                <input type="button" value="Delete" class="deleteExpenseRecordButton" />
+            </td>
+        </tr>
+    }
+        <!--Template string-->
+        <tr class="expenseRecord templateExpenseRecord">
+            <td class="tdDescription">
+                <span></span>
+            </td>
+            <td class="tdPrice">
+                <span></span>
+            </td>
+            <td class="tdDateStamp">
+                <span></span>
+            </td>
+            <td align="right">
+                <input type="button" value="Save" class="saveExpenseRecordButton hidden" />
+                <input type="button" value="Edit" class="editExpenseRecordButton" />
+                <input type="button" value="Delete" class="deleteExpenseRecordButton" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" align="right">
+                <input type="button" value="Add" class="addExpenseRecordButton" />
+            </td>
+        </tr>
+    </table>

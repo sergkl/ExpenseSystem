@@ -1,0 +1,5 @@
+D:\Projects\ExpenseSystem\ExpenseSystem.Entities\bin\Debug\ExpenseSystem.Entities.dll
+D:\Projects\ExpenseSystem\ExpenseSystem.Entities\bin\Debug\ExpenseSystem.Entities.pdb
+D:\Projects\ExpenseSystem\ExpenseSystem.Entities\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\ExpenseSystem\ExpenseSystem.Entities\obj\Debug\ExpenseSystem.Entities.dll
+D:\Projects\ExpenseSystem\ExpenseSystem.Entities\obj\Debug\ExpenseSystem.Entities.pdb

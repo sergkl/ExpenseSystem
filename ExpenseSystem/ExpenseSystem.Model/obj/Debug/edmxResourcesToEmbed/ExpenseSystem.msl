@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ExpenseSystemModelStoreContainer" CdmEntityContainer="ExpenseSystemEntities">
+    <EntitySetMapping Name="ExpenseRecords">
+      <EntityTypeMapping TypeName="ExpenseSystemModel.ExpenseRecord">
+        <MappingFragment StoreEntitySet="ExpenseRecord">
+          <ScalarProperty Name="DateStamp" ColumnName="DateStamp" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tags">
+      <EntityTypeMapping TypeName="ExpenseSystemModel.Tag">
+        <MappingFragment StoreEntitySet="Tag">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="ExpenseSystemModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="FK_ExpenseRecord_Tag" TypeName="ExpenseSystemModel.FK_ExpenseRecord_Tag" StoreEntitySet="ExpenseRecord">
+      <EndProperty Name="ExpenseRecord">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <EndProperty Name="Tag">
+        <ScalarProperty Name="Id" ColumnName="TagId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_Tag_Tag" TypeName="ExpenseSystemModel.FK_Tag_Tag" StoreEntitySet="Tag">
+      <EndProperty Name="Tag1">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <EndProperty Name="Tag">
+        <ScalarProperty Name="Id" ColumnName="ParentId" />
+      </EndProperty>
+      <Condition ColumnName="ParentId" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_Tag_User" TypeName="ExpenseSystemModel.FK_Tag_User" StoreEntitySet="Tag">
+      <EndProperty Name="Tag">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+      <Condition ColumnName="UserId" IsNull="false" />
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

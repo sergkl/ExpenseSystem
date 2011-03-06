@@ -1,0 +1,66 @@
+html { color: #000; background: #FFF; }
+body { margin: 0; padding: 0; }
+
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td { margin: 0; padding: 0; }
+body { margin: 0px; font-family: Tahoma,Verdana,Segoe,sans-serif; font-size: 80%; }
+table { padding: 0; margin: 0; border: 0px none white; }
+li { list-style: none; }
+h1 { font-size: 16pt; font-weight: bold; }
+h2 { font-size: 14pt; font-weight: bold; }
+h3 { font-size: 12pt; font-weight: bold; }
+fieldset {
+    border: 1px solid rgb(135, 135, 135);
+    padding: 3px;
+}
+fieldset legend {
+    padding: 2px;
+    font-weight: bold;
+}
+
+/*Common styles*/
+.siteColor, input[type=button], input[type=submit] { background-color: rgb(192, 192, 192); color: Black; }
+.hidden { display: none; }
+.required { background-image: url(http://greatcar.com.ua/Content/Images/Design/RequiredIcon.png); background-position: right; background-repeat: no-repeat; padding-right: 15px; } /*It is my site, so I can use it. Should be replaced when this website will be deployed into server*/
+.nonRequired { padding-right: 15px; }
+.error { color: Red; }
+/*.fullFill { width: 100%; }*/
+
+/*For "LogOn" page specific styles*/
+#logonArea { width: 230px; margin-left: auto; margin-right: auto; text-align: left; margin-top: 100px; }
+#logonArea .label { width: 80px; padding-top: 5px; float: left; font-weight: bold; }
+#logonArea .input { width: 150px; float: left; }
+#loginArea, #paswordArea { height: 40px; clear: both; }
+
+/*For "Registration" page specific styles*/
+#registrationArea { float: left; width: 350px; margin-top: 10px; }
+#registrationArea .label { float: left; clear: both; width: 150px; }
+#submitArea { text-align: center; }
+#registrationArea .registrationItem { padding-top: 5px; padding-bottom: 5px; }
+
+
+/*For master page specific styles*/
+#loadingArea { position: absolute; left:50%; top: 10px; width: 126; margin-left: -63px; z-index: 500; }
+#welcomeArea { float: right; text-align: right; padding-right: 5px; }
+#logoutLink, #registrationLink { float: right; text-align: right; margin-right: 40px; }
+#headerContent { width: 100%; min-width: 960px; padding: 20px; }
+#mainContent { width: 100%; min-width: 960px; padding: 20px; }
+
+
+/*For "Home" page specific styles*/
+#tagsTreeArea { float: left; margin-right: 20px;}
+#tagsTree .selected { font-weight: bold; }
+#tagsTree ul { font-weight: normal; font-style: normal; }
+#tagsTree li:hover { cursor: pointer; }
+
+#expensesRecordsArea { width: 60%; float: left; }
+#expensesRecords { margin-top: 10px; }
+#expensesRecordsArea table { border-collapse: collapse; border: 1px solid Black; width: 100%; }
+#expensesRecordsArea table th, #expensesRecordsArea table td  { border: 1px solid Black; padding: 5px; }
+#expensesRecordsArea table input[type=text] { background-color: rgb(192, 192, 192); font-weight: bold; }
+
+#thActions { width: 125px; } /*Fixed width for action buttons*/
+#thDateStamp { width: 150px; }
+#thAmountSpent { width: 150px; }
+#thDescription { width: 300px; }
+.templateExpenseRecord { display: none; }
+#tagsTreeArea input[type=button], #expensesRecordsArea input[type=button] { width: 60px; }

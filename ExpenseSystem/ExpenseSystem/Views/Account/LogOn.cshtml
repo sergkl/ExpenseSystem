@@ -1,0 +1,27 @@
+﻿@model ExpenseSystem.Models.LogOnViewModel
+@{
+	ViewBag.Title = "Sign In";
+    Layout = "~/Views/Shared/_UnregisteredLayout.cshtml";
+}
+
+@section BodyContent
+{
+    <div style="text-align: center;">
+        @using (Html.BeginForm("LogOn", "Account", FormMethod.Post))
+        {
+        <div id="logonArea">
+            <div id="loginArea">
+                <div class="label">Login</div>
+                <div class="input">@Html.TextBoxFor(a => a.Login)</div>
+                <span class="error">@Html.ValidationMessageFor(m => m.Login)</span>
+            </div>
+            <div id="paswordArea">
+                <div class="label">Password</div>
+                <div class="input">@Html.PasswordFor(a => a.Password)</div>
+                <span class="error">@Html.ValidationMessageFor(m => m.Password)</span>
+            </div>
+        </div>
+        <input type="submit" value="Sign In" />
+        }
+    </div>
+}

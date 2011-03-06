@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link rel="shortcut icon" href="@Url.Content("~/Content/Images/Favicon.ico")" />
+    <link href="@Url.Content("~/Content/Styles/ExpenseSystem.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery-1.4.4.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/MicrosoftAjax.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/MicrosoftMvcAjax.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/ExpenseSystem/Global.js")" type="text/javascript"></script>
+    @{ Html.EnableClientValidation(); }
+</head>
+<body>
+    <div id="headerContent" class="siteColor">
+        <h2>Expense tracking system</h2>
+        @Html.ActionLink("Registration", "Registration", "Account", null, new { @id = "registrationLink"})
+    </div>
+    <div id="mainContent">
+        @RenderSection("BodyContent", true)
+    </div>
+</body>
+</html>

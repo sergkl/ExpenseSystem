@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ExpenseSystemModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ExpenseSystemModelStoreContainer">
+    <EntitySet Name="ExpenseRecord" EntityType="ExpenseSystemModel.Store.ExpenseRecord" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Tag" EntityType="ExpenseSystemModel.Store.Tag" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="User" EntityType="ExpenseSystemModel.Store.User" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_ExpenseRecord_Tag" Association="ExpenseSystemModel.Store.FK_ExpenseRecord_Tag">
+      <End Role="Tag" EntitySet="Tag" />
+      <End Role="ExpenseRecord" EntitySet="ExpenseRecord" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tag_Tag" Association="ExpenseSystemModel.Store.FK_Tag_Tag">
+      <End Role="Tag" EntitySet="Tag" />
+      <End Role="Tag1" EntitySet="Tag" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tag_User" Association="ExpenseSystemModel.Store.FK_Tag_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Tag" EntitySet="Tag" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ExpenseRecord">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Price" Type="money" Nullable="false" />
+    <Property Name="TagId" Type="int" Nullable="false" />
+    <Property Name="DateStamp" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tag">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ParentId" Type="int" />
+    <Property Name="UserId" Type="int" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Login" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_ExpenseRecord_Tag">
+    <End Role="Tag" Type="ExpenseSystemModel.Store.Tag" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ExpenseRecord" Type="ExpenseSystemModel.Store.ExpenseRecord" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tag">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ExpenseRecord">
+        <PropertyRef Name="TagId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tag_Tag">
+    <End Role="Tag" Type="ExpenseSystemModel.Store.Tag" Multiplicity="0..1" />
+    <End Role="Tag1" Type="ExpenseSystemModel.Store.Tag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tag">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tag1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tag_User">
+    <End Role="User" Type="ExpenseSystemModel.Store.User" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Tag" Type="ExpenseSystemModel.Store.Tag" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tag">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

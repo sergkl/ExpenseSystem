@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="b6cf06ba-202c-4af5-93ef-2e677c5bcacf" name="Sergey@SERGEY-PC 2011-02-27 21:11:43" runUser="Sergey-PC\Sergey" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Default Test Settings" id="02c4eb4a-9199-4118-bbac-3b0f65d9deeb">
+    <Deployment runDeploymentRoot="Sergey_SERGEY-PC 2011-02-27 21_11_43">
+      <DeploymentItem filename="D:\Projects\ExpenseSystem\ExpenseSystem.Model\bin\Debug\ExpenseSystem.Model.dll" />
+      <DeploymentItem filename="D:\Projects\ExpenseSystem\ExpenseSystem.Repositories\bin\Debug\ExpenseSystem.Repositories.dll" />
+      <DeploymentItem filename="D:\Projects\ExpenseSystem\ExpenseSystem.Entities\bin\Debug\ExpenseSystem.Entities.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2011-02-27T21:11:43.9169921+02:00" queuing="2011-02-27T21:11:46.3408203+02:00" start="2011-02-27T21:11:46.5478515+02:00" finish="2011-02-27T21:11:51.3955078+02:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="DeleteByIdTest" storage="d:\projects\expensesystem\expensesystem.tests\bin\debug\expensesystem.tests.dll" id="7ad2c5a4-fb0e-f1e4-4f87-fd6d7f97df50">
+      <Execution id="917ccb6d-c5fc-48b7-a173-2deb0a8fc23c" />
+      <TestMethod codeBase="D:/Projects/ExpenseSystem/ExpenseSystem.Tests/bin/Debug/ExpenseSystem.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ExpenseSystem.Tests.Repositories.TagRepositoryTest, ExpenseSystem.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="DeleteByIdTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="7ad2c5a4-fb0e-f1e4-4f87-fd6d7f97df50" executionId="917ccb6d-c5fc-48b7-a173-2deb0a8fc23c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="917ccb6d-c5fc-48b7-a173-2deb0a8fc23c" testId="7ad2c5a4-fb0e-f1e4-4f87-fd6d7f97df50" testName="DeleteByIdTest" computerName="SERGEY-PC" duration="00:00:01.4636168" startTime="2011-02-27T21:11:46.6425781+02:00" endTime="2011-02-27T21:11:49.6679687+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="917ccb6d-c5fc-48b7-a173-2deb0a8fc23c">
+    </UnitTestResult>
+  </Results>
+</TestRun>

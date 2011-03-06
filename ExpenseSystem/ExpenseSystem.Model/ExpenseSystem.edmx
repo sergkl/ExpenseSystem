@@ -1,0 +1,271 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ExpenseSystemModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="ExpenseSystemModelStoreContainer">
+          <EntitySet Name="ExpenseRecord" EntityType="ExpenseSystemModel.Store.ExpenseRecord" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Tag" EntityType="ExpenseSystemModel.Store.Tag" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="User" EntityType="ExpenseSystemModel.Store.User" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_ExpenseRecord_Tag" Association="ExpenseSystemModel.Store.FK_ExpenseRecord_Tag">
+            <End Role="Tag" EntitySet="Tag" />
+            <End Role="ExpenseRecord" EntitySet="ExpenseRecord" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tag_Tag" Association="ExpenseSystemModel.Store.FK_Tag_Tag">
+            <End Role="Tag" EntitySet="Tag" />
+            <End Role="Tag1" EntitySet="Tag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tag_User" Association="ExpenseSystemModel.Store.FK_Tag_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Tag" EntitySet="Tag" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ExpenseRecord">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Price" Type="money" Nullable="false" />
+          <Property Name="TagId" Type="int" Nullable="false" />
+          <Property Name="DateStamp" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tag">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ParentId" Type="int" />
+          <Property Name="UserId" Type="int" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Login" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_ExpenseRecord_Tag">
+          <End Role="Tag" Type="ExpenseSystemModel.Store.Tag" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ExpenseRecord" Type="ExpenseSystemModel.Store.ExpenseRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tag">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ExpenseRecord">
+              <PropertyRef Name="TagId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tag_Tag">
+          <End Role="Tag" Type="ExpenseSystemModel.Store.Tag" Multiplicity="0..1" />
+          <End Role="Tag1" Type="ExpenseSystemModel.Store.Tag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tag">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tag1">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tag_User">
+          <End Role="User" Type="ExpenseSystemModel.Store.User" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Tag" Type="ExpenseSystemModel.Store.Tag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tag">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ExpenseSystemModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="ExpenseSystemEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ExpenseRecords" EntityType="ExpenseSystemModel.ExpenseRecord" />
+          <EntitySet Name="Tags" EntityType="ExpenseSystemModel.Tag" />
+          <EntitySet Name="Users" EntityType="ExpenseSystemModel.User" />
+          <AssociationSet Name="FK_ExpenseRecord_Tag" Association="ExpenseSystemModel.FK_ExpenseRecord_Tag">
+            <End Role="Tag" EntitySet="Tags" />
+            <End Role="ExpenseRecord" EntitySet="ExpenseRecords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tag_Tag" Association="ExpenseSystemModel.FK_Tag_Tag">
+            <End Role="Tag" EntitySet="Tags" />
+            <End Role="Tag1" EntitySet="Tags" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tag_User" Association="ExpenseSystemModel.FK_Tag_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Tag" EntitySet="Tags" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ExpenseRecord">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="Price" Nullable="false" Precision="19" Scale="4" />
+          <Property Type="DateTime" Name="DateStamp" Nullable="false" />
+          <NavigationProperty Name="Tag" Relationship="ExpenseSystemModel.FK_ExpenseRecord_Tag" FromRole="ExpenseRecord" ToRole="Tag" />
+        </EntityType>
+        <EntityType Name="Tag">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ExpenseRecords" Relationship="ExpenseSystemModel.FK_ExpenseRecord_Tag" FromRole="Tag" ToRole="ExpenseRecord" />
+          <NavigationProperty Name="Children" Relationship="ExpenseSystemModel.FK_Tag_Tag" FromRole="Tag" ToRole="Tag1" />
+          <NavigationProperty Name="Parent" Relationship="ExpenseSystemModel.FK_Tag_Tag" FromRole="Tag1" ToRole="Tag" />
+          <NavigationProperty Name="User" Relationship="ExpenseSystemModel.FK_Tag_User" FromRole="Tag" ToRole="User" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MiddleName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Phone" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Login" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Tags" Relationship="ExpenseSystemModel.FK_Tag_User" FromRole="User" ToRole="Tag" />
+        </EntityType>
+        <Association Name="FK_ExpenseRecord_Tag">
+          <End Type="ExpenseSystemModel.Tag" Role="Tag" Multiplicity="1" />
+          <End Type="ExpenseSystemModel.ExpenseRecord" Role="ExpenseRecord" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_Tag_Tag">
+          <End Type="ExpenseSystemModel.Tag" Role="Tag" Multiplicity="0..1" />
+          <End Type="ExpenseSystemModel.Tag" Role="Tag1" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_Tag_User">
+          <End Type="ExpenseSystemModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="ExpenseSystemModel.Tag" Role="Tag" Multiplicity="*" />
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ExpenseSystemModelStoreContainer" CdmEntityContainer="ExpenseSystemEntities">
+          <EntitySetMapping Name="ExpenseRecords">
+            <EntityTypeMapping TypeName="ExpenseSystemModel.ExpenseRecord">
+              <MappingFragment StoreEntitySet="ExpenseRecord">
+                <ScalarProperty Name="DateStamp" ColumnName="DateStamp" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tags">
+            <EntityTypeMapping TypeName="ExpenseSystemModel.Tag">
+              <MappingFragment StoreEntitySet="Tag">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="ExpenseSystemModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="FK_ExpenseRecord_Tag" TypeName="ExpenseSystemModel.FK_ExpenseRecord_Tag" StoreEntitySet="ExpenseRecord">
+            <EndProperty Name="ExpenseRecord">
+              <ScalarProperty Name="Id" ColumnName="Id" />
+            </EndProperty>
+            <EndProperty Name="Tag">
+              <ScalarProperty Name="Id" ColumnName="TagId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Tag_Tag" TypeName="ExpenseSystemModel.FK_Tag_Tag" StoreEntitySet="Tag">
+            <EndProperty Name="Tag1">
+              <ScalarProperty Name="Id" ColumnName="Id" />
+            </EndProperty>
+            <EndProperty Name="Tag">
+              <ScalarProperty Name="Id" ColumnName="ParentId" />
+            </EndProperty>
+            <Condition ColumnName="ParentId" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Tag_User" TypeName="ExpenseSystemModel.FK_Tag_User" StoreEntitySet="Tag">
+            <EndProperty Name="Tag">
+              <ScalarProperty Name="Id" ColumnName="Id" />
+            </EndProperty>
+            <EndProperty Name="User">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+            <Condition ColumnName="UserId" IsNull="false" />
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="ExpenseSystem">
+        <EntityTypeShape EntityType="ExpenseSystemModel.ExpenseRecord" Width="1.5" PointX="5.25" PointY="1.375" Height="1.9802864583333335" />
+        <EntityTypeShape EntityType="ExpenseSystemModel.Tag" Width="1.5" PointX="3" PointY="1.25" Height="2.1725878906249996" />
+        <EntityTypeShape EntityType="ExpenseSystemModel.User" Width="1.5" PointX="0.75" PointY="1" Height="2.7494921874999996" />
+        <AssociationConnector Association="ExpenseSystemModel.FK_ExpenseRecord_Tag" >
+          <ConnectorPoint PointX="4.5" PointY="2.3651432291666667" />
+          <ConnectorPoint PointX="5.25" PointY="2.3651432291666667" />
+        </AssociationConnector>
+        <AssociationConnector Association="ExpenseSystemModel.FK_Tag_Tag" >
+          <ConnectorPoint PointX="3.5319230769230767" PointY="3.4225878906249996" />
+          <ConnectorPoint PointX="3.5319230769230767" PointY="3.6725878906249996" />
+          <ConnectorPoint PointX="3.9784615384615383" PointY="3.6725878906249996" />
+          <ConnectorPoint PointX="3.9784615384615383" PointY="3.4225878906249996" />
+        </AssociationConnector>
+        <AssociationConnector Association="ExpenseSystemModel.FK_Tag_User" >
+          <ConnectorPoint PointX="2.25" PointY="2.3362939453125" />
+          <ConnectorPoint PointX="3" PointY="2.3362939453125" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

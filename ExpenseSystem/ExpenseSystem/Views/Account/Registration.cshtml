@@ -1,0 +1,101 @@
+﻿@model ExpenseSystem.ViewModels.Account.RegistrationViewModel
+@{
+    ViewBag.Title = "Registration";
+    Layout = "~/Views/Shared/_UnregisteredLayout.cshtml";
+}
+
+@section BodyContent
+{
+    <h2>Create new account</h2>
+    @using (Html.BeginForm("Registration", "Account", FormMethod.Post))
+    {
+        <div id="registrationArea">
+            <fieldset>
+                <legend>Account Information</legend>
+                <div class="registrationItem">
+                    <div class="label required">
+                        First name
+                    </div>
+                    <div>
+                        @Html.TextBoxFor(m => m.FirstName)<br />
+                        <span class="error">@Html.ValidationMessageFor(m => m.FirstName)</span>
+                    </div>
+                </div>
+
+                <div class="registrationItem">
+                    <div class="label nonRequired">
+                        Middle name
+                    </div>
+                    <div>
+                        @Html.TextBoxFor(m => m.MiddleName)<br />
+                        <span class="error">@Html.ValidationMessageFor(m => m.MiddleName)</span>
+                    </div>
+                </div>
+
+                <div class="registrationItem">
+                    <div class="label required">
+                        Last name
+                    </div>
+                    <div>
+                        @Html.TextBoxFor(m => m.LastName)<br />
+                        <span class="error">@Html.ValidationMessageFor(m => m.LastName)</span>
+                    </div>
+                </div>
+
+                <div class="registrationItem">
+                    <div class="label required">
+                        E-mail
+                    </div>
+                    <div>
+                        @Html.TextBoxFor(m => m.Email)<br />
+                        <span class="error">@Html.ValidationMessageFor(m => m.Email)</span>
+                    </div>
+                </div>
+
+                <div class="registrationItem">
+                    <div class="label nonRequired">
+                        Phone number
+                    </div>
+                    <div>
+                        @Html.TextBoxFor(m => m.Phone)<br />
+                        <span class="error">@Html.ValidationMessageFor(m => m.Phone)</span>
+                    </div>
+                </div>
+
+                <div class="registrationItem">
+                    <div class="label required">
+                        Login
+                    </div>
+                    <div>
+                        @Html.TextBoxFor(m => m.Login)<br />
+                        <span class="error">@Html.ValidationMessageFor(m => m.Login)</span>
+                    </div>
+                </div>
+
+                <div class="registrationItem">
+                    <div class="label required">
+                        Password
+                    </div>
+                    <div>
+                        @Html.PasswordFor(m => m.Password)<br />
+                        <span class="error">@Html.ValidationMessageFor(m => m.Password)</span>
+                    </div>
+                </div>
+
+                <div class="registrationItem">
+                    <div class="label required">
+                        Confirm password
+                    </div>
+                    <div>
+                        @Html.PasswordFor(m => m.ConfirmPassword)<br />
+                        <span class="error">@Html.ValidationMessageFor(m => m.ConfirmPassword)</span>
+                    </div>
+                </div>
+
+                <p id="submitArea">
+                    <input type="submit" value="Register" />
+                </p>
+            </fieldset>
+        </div>
+    }
+}

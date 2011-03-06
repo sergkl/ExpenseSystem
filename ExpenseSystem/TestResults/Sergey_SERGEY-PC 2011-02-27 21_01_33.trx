@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="d03fbd6f-30ff-40bc-a88c-590eb5af4f02" name="Sergey@SERGEY-PC 2011-02-27 21:01:33" runUser="Sergey-PC\Sergey" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Default Test Settings" id="d8445bef-9b62-472d-ada8-25dcdc2f17d3">
+    <Deployment runDeploymentRoot="Sergey_SERGEY-PC 2011-02-27 21_01_33">
+      <DeploymentItem filename="D:\Projects\ExpenseSystem\ExpenseSystem.Model\bin\Debug\ExpenseSystem.Model.dll" />
+      <DeploymentItem filename="D:\Projects\ExpenseSystem\ExpenseSystem.Repositories\bin\Debug\ExpenseSystem.Repositories.dll" />
+      <DeploymentItem filename="D:\Projects\ExpenseSystem\ExpenseSystem.Entities\bin\Debug\ExpenseSystem.Entities.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2011-02-27T21:01:33.9833984+02:00" queuing="2011-02-27T21:01:44.3369140+02:00" start="2011-02-27T21:01:44.7060546+02:00" finish="2011-02-27T21:01:49.0761718+02:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="2" executed="2" passed="2" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="GetParentTagByUserIdTest" storage="d:\projects\expensesystem\expensesystem.tests\bin\debug\expensesystem.tests.dll" id="4b9f5511-eddf-9b6b-f18f-6e42c8444723">
+      <Execution id="7a6b0c63-7edf-42c0-921c-8483ab95d16a" />
+      <TestMethod codeBase="D:/Projects/ExpenseSystem/ExpenseSystem.Tests/bin/Debug/ExpenseSystem.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ExpenseSystem.Tests.Repositories.TagRepositoryTest, ExpenseSystem.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetParentTagByUserIdTest" />
+    </UnitTest>
+    <UnitTest name="GetByIdTest" storage="d:\projects\expensesystem\expensesystem.tests\bin\debug\expensesystem.tests.dll" id="c11d9502-9664-ec7d-5738-644f539cd80d">
+      <Execution id="2e3360d9-9e42-47d1-a92e-96183d63c93c" />
+      <TestMethod codeBase="D:/Projects/ExpenseSystem/ExpenseSystem.Tests/bin/Debug/ExpenseSystem.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="ExpenseSystem.Tests.Repositories.TagRepositoryTest, ExpenseSystem.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetByIdTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="4b9f5511-eddf-9b6b-f18f-6e42c8444723" executionId="7a6b0c63-7edf-42c0-921c-8483ab95d16a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c11d9502-9664-ec7d-5738-644f539cd80d" executionId="2e3360d9-9e42-47d1-a92e-96183d63c93c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="7a6b0c63-7edf-42c0-921c-8483ab95d16a" testId="4b9f5511-eddf-9b6b-f18f-6e42c8444723" testName="GetParentTagByUserIdTest" computerName="SERGEY-PC" duration="00:00:01.5691129" startTime="2011-02-27T21:01:45.3964843+02:00" endTime="2011-02-27T21:01:48.6601562+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7a6b0c63-7edf-42c0-921c-8483ab95d16a">
+    </UnitTestResult>
+    <UnitTestResult executionId="2e3360d9-9e42-47d1-a92e-96183d63c93c" testId="c11d9502-9664-ec7d-5738-644f539cd80d" testName="GetByIdTest" computerName="SERGEY-PC" duration="00:00:00.0204710" startTime="2011-02-27T21:01:48.7871093+02:00" endTime="2011-02-27T21:01:48.8291015+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2e3360d9-9e42-47d1-a92e-96183d63c93c">
+    </UnitTestResult>
+  </Results>
+</TestRun>
