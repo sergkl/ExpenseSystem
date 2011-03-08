@@ -32,7 +32,7 @@
         @if (Model.Children.Count > 0)
         {
         <ul id="tagsTree">
-            @Html.Partial("TagsBranchPartial", Model.Children.ToList())                                                  
+            @Html.Partial("~/Views/Tag/TagsBranchPartial.cshtml", Model.Children.ToList())                                                  
         </ul>
         }
         <div>

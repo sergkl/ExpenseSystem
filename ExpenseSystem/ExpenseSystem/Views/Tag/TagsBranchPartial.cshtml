@@ -7,7 +7,7 @@
     @if (tag.Children.Count > 0)
     {
         <ul>
-            @Html.Partial("TagsBranchPartial", tag.Children.ToList())
+            @Html.Partial("~/Views/Tag/TagsBranchPartial.cshtml", tag.Children.ToList())
         </ul>
     }
     </li>

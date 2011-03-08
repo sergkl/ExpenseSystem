@@ -23,7 +23,7 @@ function deleteExpenseRecord(recordRow) {
     var expenseRecordId = $(recordRow).attr("id");
     if (expenseRecordId != "") {
         $.ajax({
-            url: "/Home/DeleteExpenseRecord",
+            url: "/Expense/DeleteExpenseRecord",
             type: "POST",
             data: { expenseRecordId: expenseRecordId.replace("expenseRecord_", "") },
             dataType: "json",
@@ -110,7 +110,7 @@ function saveExpenseRecord(recordRow) {
         dataToSend = { description: description, price: price, tagId: tagId, dateStamp: dateStamp, expenseRecordId: $(recordRow).attr("id").replace("expenseRecord_", "") };
     }
     $.ajax({
-        url: "/Home/" + actionName,
+        url: "/Expense/" + actionName,
         type: "POST",
         data: dataToSend,
         dataType: "json",
@@ -169,7 +169,7 @@ function editTag() {
 
 function deleteTag() {
     selectedLi = $('#tagsTree .selected');
-    $.post("/Home/DeleteTag",
+    $.post("/Tag/DeleteTag",
             'tagId=' + selectedLi.attr("id").replace("tagId_", ""),
             function (result) {
                 if (!result.IsError) {
@@ -197,7 +197,7 @@ function deleteTag() {
 function cancelEditing(editingControl) {
     if ($(editingControl).val() != "") {
         var valueArea = $(editingControl).parent().find("> .tagValue");
-        $.post("/Home/ChangeTagName",
+        $.post("/Tag/ChangeTagName",
             'tagId=' + valueArea.parent().attr("id").replace("tagId_", "") + '&tagName=' + $(editingControl).val(),
             function (result) {
                 if (!result.IsError) {
@@ -215,7 +215,7 @@ function cancelEditing(editingControl) {
 
 function addTag() {
     if ($('#tagsTree').length == 0) {   //If we don't have tree at all.
-        $.post("/Home/AddTag",
+        $.post("/Tag/AddTag",
             'name=New node&parentId=null',
             function (result) {
                 if (!result.IsError) {
@@ -243,7 +243,7 @@ function addTag() {
         selectedLi = $('#tagsTree .selected');
         if (selectedLi.length > 0) {
 
-            $.post("/Home/AddTag",
+            $.post("/Tag/AddTag",
             'name=New node&parentId=' + selectedLi.attr("id").replace("tagId_", ""),
             function (result) {
                 if (!result.IsError) {
@@ -301,8 +301,8 @@ function joinStrings(strings) {
 
 function loadExpensesRecords(tagId, includeBranches) {
     $.ajax({
-        url: "/Home/GetExpenseRecords",
-        type: "POST",
+        url: "/Expense/GetExpenseRecords",
+        type: "POST",   //I used post in this situation, because IE caches the data and after clicking on choosed tag again, expense records will be shown as withouth changing.
         data: { tagId: tagId, includeBranchesResuls: includeBranches },
         dataType: "html",
         success: function (data) {

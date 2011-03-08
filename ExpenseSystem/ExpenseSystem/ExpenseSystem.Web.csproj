@@ -64,8 +64,10 @@
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ExpenseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
+    <Compile Include="Controllers\TagController.cs" />
     <Compile Include="Controllers\UnityControllerFactory.cs" />
     <Compile Include="Extensions\Account.cs" />
     <Compile Include="Global.asax.cs">
@@ -73,11 +75,10 @@
     </Compile>
     <Compile Include="Helpers\SessionHelper.cs" />
     <Compile Include="ValidationAttributes.cs" />
-    <Compile Include="ViewModels\Home\ExpensesViewModel.cs" />
+    <Compile Include="ViewModels\Expense\ExpensesViewModel.cs" />
     <Compile Include="ViewModels\Account\LogOnViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Account\RegistrationViewModel.cs" />
-    <Compile Include="ViewModels\Home\IndexViewModel.cs" />
     <Compile Include="ViewModels\Report\IndexViewModel.cs" />
     <Compile Include="ViewModels\Report\TagResult.cs" />
   </ItemGroup>
@@ -162,7 +163,7 @@
     <Content Include="Views\Account\LogOn.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\ExpenseRecordsPartial.cshtml" />
+    <Content Include="Views\Expense\ExpenseRecordsPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_UnregisteredLayout.cshtml" />
@@ -182,7 +183,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\TagsBranchPartial.cshtml" />
+    <Content Include="Views\Tag\TagsBranchPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Report\Index.cshtml" />
