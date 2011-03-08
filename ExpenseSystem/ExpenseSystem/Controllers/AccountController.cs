@@ -11,11 +11,19 @@ using Dto = ExpenseSystem.Entities;
 using ExpenseSystem.Repositories;
 using ExpenseSystem.Repositories.Responses;
 using ExpenseSystem.Entities;
+using ExpenseSystem.Repositories.Interfaces;
+using Microsoft.Practices.Unity;
 
 namespace ExpenseSystem.Controllers
 {
     public class AccountController : BaseController
     {
+        [Dependency]
+        public IUserRepository UserRepository { get; set; }
+
+        [Dependency]
+        public ITagRepository TagRepository { get; set; }
+
         [HttpGet]
         public ActionResult LogOn()
         {
@@ -27,8 +35,7 @@ namespace ExpenseSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                UserRepository userRepository = new UserRepository(Context);
-                Dto.User user = userRepository.GetUserByCredentials(logOnViewModel.Login, logOnViewModel.Password).Object;
+                Dto.User user = UserRepository.GetUserByCredentials(logOnViewModel.Login, logOnViewModel.Password).Object;
                 if (user != null)
                 {
                     SessionVars.UserId = user.Id;
@@ -66,9 +73,7 @@ namespace ExpenseSystem.Controllers
         [HttpPost]
         public ActionResult Registration(RegistrationViewModel registrationViewModel)
         {
-            UserRepository userRepository = new UserRepository(Context);
-
-            if (userRepository.IsLoginExists(registrationViewModel.Login))
+            if (UserRepository.IsLoginExists(registrationViewModel.Login))
             {
                 ModelState.AddModelError("Login", "Current login is busy. Choose another one");
             }
@@ -83,11 +88,10 @@ namespace ExpenseSystem.Controllers
                 Dto.User user = registrationViewModel.ToEntity();
 
                 //Save / Register user
-                AddResponse response = userRepository.Add(SessionVars.UserId, user);
+                AddResponse response = UserRepository.Add(SessionVars.UserId, user);
                 user.Id = response.Id;
 
-                TagRepository tagRepository = new TagRepository(Context);
-                tagRepository.Add(user.Id, new Tag() { Name = "ExpensesTag" });
+                TagRepository.Add(user.Id, new Tag() { Name = "ExpensesTag" });
 
                 SessionVars.UserId = user.Id;
                 SessionVars.UserName = string.Format("{0} {1} {2}", user.FirstName, user.MiddleName, user.LastName).Replace("  ", " "); //The last replacing will work when user don't have middle name. It will correct full name format.

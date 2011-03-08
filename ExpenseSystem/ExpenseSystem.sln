@@ -9,15 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseSystem.Entities", "E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseSystem.Repositories", "ExpenseSystem.Repositories\ExpenseSystem.Repositories.csproj", "{DA504E0F-CE8B-4202-AD18-C39FDDF8241D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseSystem.RESTService", "RESTService\ExpenseSystem.RESTService.csproj", "{C4DE5AAC-EAFC-41E1-9416-B20E7B4C4987}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseSystem.RESTHosting", "ExpenseSystem.RESTHosting\ExpenseSystem.RESTHosting.csproj", "{B4F5AA01-3220-41CE-8880-AF0DE24ED5CC}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseSystem.MSpecTests", "ExpenseSystem.MSpecTests\ExpenseSystem.MSpecTests.csproj", "{7F077652-AFEC-4AE5-9FEB-7CD150FB3786}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependenses", "Dependenses", "{9192E854-B4AC-439B-935F-91E774321FEE}"
 	ProjectSection(SolutionItems) = preProject
 		Dependenses\Machine.Specifications.dll = Dependenses\Machine.Specifications.dll
+		Dependenses\Microsoft.Practices.Unity.dll = Dependenses\Microsoft.Practices.Unity.dll
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseSystem.Common", "ExpenseSystem.Common\ExpenseSystem.Common.csproj", "{014B0DAD-2C7B-4656-BBA2-81DF38DD1285}"
@@ -72,26 +69,6 @@ Global
 		{DA504E0F-CE8B-4202-AD18-C39FDDF8241D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{DA504E0F-CE8B-4202-AD18-C39FDDF8241D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{DA504E0F-CE8B-4202-AD18-C39FDDF8241D}.Release|x86.ActiveCfg = Release|Any CPU
-		{C4DE5AAC-EAFC-41E1-9416-B20E7B4C4987}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C4DE5AAC-EAFC-41E1-9416-B20E7B4C4987}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C4DE5AAC-EAFC-41E1-9416-B20E7B4C4987}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{C4DE5AAC-EAFC-41E1-9416-B20E7B4C4987}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{C4DE5AAC-EAFC-41E1-9416-B20E7B4C4987}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{C4DE5AAC-EAFC-41E1-9416-B20E7B4C4987}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C4DE5AAC-EAFC-41E1-9416-B20E7B4C4987}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C4DE5AAC-EAFC-41E1-9416-B20E7B4C4987}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{C4DE5AAC-EAFC-41E1-9416-B20E7B4C4987}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{C4DE5AAC-EAFC-41E1-9416-B20E7B4C4987}.Release|x86.ActiveCfg = Release|Any CPU
-		{B4F5AA01-3220-41CE-8880-AF0DE24ED5CC}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{B4F5AA01-3220-41CE-8880-AF0DE24ED5CC}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{B4F5AA01-3220-41CE-8880-AF0DE24ED5CC}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{B4F5AA01-3220-41CE-8880-AF0DE24ED5CC}.Debug|x86.ActiveCfg = Debug|x86
-		{B4F5AA01-3220-41CE-8880-AF0DE24ED5CC}.Debug|x86.Build.0 = Debug|x86
-		{B4F5AA01-3220-41CE-8880-AF0DE24ED5CC}.Release|Any CPU.ActiveCfg = Release|x86
-		{B4F5AA01-3220-41CE-8880-AF0DE24ED5CC}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{B4F5AA01-3220-41CE-8880-AF0DE24ED5CC}.Release|Mixed Platforms.Build.0 = Release|x86
-		{B4F5AA01-3220-41CE-8880-AF0DE24ED5CC}.Release|x86.ActiveCfg = Release|x86
-		{B4F5AA01-3220-41CE-8880-AF0DE24ED5CC}.Release|x86.Build.0 = Release|x86
 		{7F077652-AFEC-4AE5-9FEB-7CD150FB3786}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7F077652-AFEC-4AE5-9FEB-7CD150FB3786}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F077652-AFEC-4AE5-9FEB-7CD150FB3786}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU

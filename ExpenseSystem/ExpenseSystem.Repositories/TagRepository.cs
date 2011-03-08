@@ -5,10 +5,11 @@ using System.Text;
 using ExpenseSystem.Entities;
 using ExpenseSystem.Model;
 using ExpenseSystem.Repositories.Responses;
+using ExpenseSystem.Repositories.Interfaces;
 
 namespace ExpenseSystem.Repositories
 {
-    public class TagRepository : IEntityRepository<Tag>
+    public class TagRepository : ITagRepository
     {
         private readonly ExpenseSystemEntities context;
 
@@ -24,13 +25,6 @@ namespace ExpenseSystem.Repositories
             return response;
         }
 
-        public GetObjectResponse<Tag> GetParentTagByUserId(int userId)
-        {
-            GetObjectResponse<Tag> response = new GetObjectResponse<Tag>();
-            response.Object = context.Tags.FirstOrDefault(a => a.Parent == null && a.User.Id == userId);
-            return response;
-        }
-
         public AddResponse Add(int userId, string name, int parentId)
         {
             AddResponse addResponse = new AddResponse();
@@ -43,6 +37,25 @@ namespace ExpenseSystem.Repositories
             context.Save();
             addResponse.Id = tag.Id;
             return addResponse;
+        }
+
+        public Response Delete(int userId, Tag entity)
+        {
+            while (entity.Children.Count > 0)
+            {
+                Delete(userId, entity.Children.First());
+            }
+            context.Tags.DeleteObject(entity);
+            context.Save();
+            Response response = new Response();
+            return response;
+        }
+
+        public GetObjectResponse<Tag> GetParentTagByUserId(int userId)
+        {
+            GetObjectResponse<Tag> response = new GetObjectResponse<Tag>();
+            response.Object = context.Tags.FirstOrDefault(a => a.Parent == null && a.User.Id == userId);
+            return response;
         }
 
         public Response ChangeTagName(int userId, int tagId, string tagName)
@@ -61,18 +74,6 @@ namespace ExpenseSystem.Repositories
             context.Save();
             addResponse.Id = entity.Id;
             return addResponse;
-        }
-
-        public Response Delete(int userId, Tag entity)
-        {
-            while (entity.Children.Count > 0)
-            {
-                Delete(userId, entity.Children.First());
-            }
-            context.Tags.DeleteObject(entity);
-            context.Save();
-            Response response = new Response();
-            return response;
         }
 
         public Response DeleteById(int userId, int tagId)

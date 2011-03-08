@@ -5,10 +5,11 @@ using System.Text;
 using ExpenseSystem.Entities;
 using ExpenseSystem.Model;
 using ExpenseSystem.Repositories.Responses;
+using ExpenseSystem.Repositories.Interfaces;
 
 namespace ExpenseSystem.Repositories
 {
-    public class ExpenseRecordRepository : IEntityRepository<ExpenseRecord>
+    public class ExpenseRecordRepository : IExpenseRecordRepository
     {
         private readonly ExpenseSystemEntities context;
 

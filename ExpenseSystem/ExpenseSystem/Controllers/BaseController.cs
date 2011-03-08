@@ -11,12 +11,10 @@ namespace ExpenseSystem.Controllers
 {
     public abstract class BaseController : Controller
     {
-        public ExpenseSystemEntities Context { get; set; }
         public SessionHelper SessionVars { get; set; }
 
         public BaseController()
         {
-            Context = new ExpenseSystemEntities();
             SessionVars = new SessionHelper();
             ViewData["UserName"] = SessionVars.UserName;
         }

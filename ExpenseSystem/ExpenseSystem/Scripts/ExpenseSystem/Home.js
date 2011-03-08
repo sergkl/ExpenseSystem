@@ -14,7 +14,7 @@
 function addExpenseRecord() {
     var newExpenseRecord = { Description: "", Price: "0", DateStamp: "" };
     var expenseRecordTemplate = $("#expenseRecordTemplate").tmpl(newExpenseRecord);
-    $('.expenseRecord:last').after(expenseRecordTemplate);
+    $('#addExpenseRecordArea').before(expenseRecordTemplate);
     assignExpenseRecordEvents(expenseRecordTemplate);
     editExpenseRecord(expenseRecordTemplate);
 }
@@ -39,6 +39,9 @@ function deleteExpenseRecord(recordRow) {
                 alert('Server is busy. Try again later.');
             }
         });
+    }
+    else {
+        recordRow.remove();
     }
 }
 

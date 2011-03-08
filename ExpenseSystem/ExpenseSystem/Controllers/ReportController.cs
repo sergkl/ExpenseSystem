@@ -7,6 +7,7 @@ using ExpenseSystem.ViewModels.Report;
 using ExpenseSystem.Repositories;
 using Dto = ExpenseSystem.Entities;
 using ExpenseSystem.Entities;
+using Microsoft.Practices.Unity;
 
 namespace ExpenseSystem.Controllers
 {
@@ -14,7 +15,9 @@ namespace ExpenseSystem.Controllers
     {
         DateTime startDate;
         DateTime endDate;
-        TagRepository tagRepository;
+
+        [Dependency]
+        public TagRepository TagRepository { get; set; }
 
         public ActionResult Index()
         {
@@ -36,8 +39,7 @@ namespace ExpenseSystem.Controllers
             {
                 startDate = indexViewModel.StartDate;
                 endDate = indexViewModel.EndDate;
-                tagRepository = new TagRepository(Context);
-                Tag tag = tagRepository.GetParentTagByUserId(SessionVars.UserId).Object;
+                Tag tag = TagRepository.GetParentTagByUserId(SessionVars.UserId).Object;
                 TagResult tagResult = new TagResult();
                 tagResult.TagId = tag.Id;
                 indexViewModel.ParentTagResult = GetTagResult(tagResult);
@@ -52,8 +54,8 @@ namespace ExpenseSystem.Controllers
 
         private TagResult GetTagResult(TagResult tagResult)
         {
-            Tag tag = tagRepository.GetById(SessionVars.UserId, tagResult.TagId).Object;
-            tagResult.SpentAmount = tagRepository.GetSpentAmountByTag(SessionVars.UserId, tagResult.TagId, startDate, endDate).Object;
+            Tag tag = TagRepository.GetById(SessionVars.UserId, tagResult.TagId).Object;
+            tagResult.SpentAmount = TagRepository.GetSpentAmountByTag(SessionVars.UserId, tagResult.TagId, startDate, endDate).Object;
             tagResult.TagName = tag.Name;
             foreach (Tag childTag in tag.Children)
             {

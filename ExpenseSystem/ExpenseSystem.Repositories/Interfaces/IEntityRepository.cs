@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using ExpenseSystem.Repositories.Responses;
 
-namespace ExpenseSystem.Repositories
+namespace ExpenseSystem.Repositories.Interfaces
 {
     /// <summary>
     /// Interface declares common methods like CRUD (Create, Read, Update, Delete), etc...

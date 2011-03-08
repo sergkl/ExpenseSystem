@@ -49,7 +49,6 @@
     <Compile Include="Repositories\User\GetBaseUsersInfo.cs" />
     <Compile Include="Repositories\User\GetById.cs" />
     <Compile Include="Repositories\User\GetUserByCredentials.cs" />
-    <Compile Include="Repositories\User\GetUserByLogin.cs" />
     <Compile Include="Repositories\User\IsLoginExists.cs" />
     <Compile Include="Repositories\User\UserBaseTester.cs" />
   </ItemGroup>

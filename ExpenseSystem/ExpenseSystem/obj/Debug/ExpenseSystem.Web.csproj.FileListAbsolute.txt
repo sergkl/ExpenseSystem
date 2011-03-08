@@ -24,3 +24,5 @@ D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem\bin\ExpenseSystem.Reposito
 D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem\bin\ExpenseSystem.Common.pdb
 D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem\obj\Debug\ExpenseSystem.dll
 D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem\obj\Debug\ExpenseSystem.pdb
+D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem\bin\Microsoft.Practices.Unity.dll
+D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem\bin\Microsoft.Practices.ServiceLocation.dll

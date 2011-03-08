@@ -4,6 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Microsoft.Practices.Unity;
+using ExpenseSystem.Controllers;
+using ExpenseSystem.Repositories.Interfaces;
+using ExpenseSystem.Repositories;
+using ExpenseSystem.Model;
 
 namespace ExpenseSystem
 {
@@ -29,8 +34,26 @@ namespace ExpenseSystem
 
         }
 
+        private static void RegisterTypes(IUnityContainer container)
+        {
+            var injectedContext = new InjectionConstructor(new ExpenseSystemEntities());
+            container.RegisterType<IExpenseRecordRepository, ExpenseRecordRepository>(injectedContext);
+            container.RegisterType<ITagRepository, TagRepository>(injectedContext);
+            container.RegisterType<IUserRepository, UserRepository>(injectedContext);
+        }
+
+        private static void RegisterControllerFactory(IUnityContainer container)
+        {
+            var factory = new UnityControllerFactory(container);
+            ControllerBuilder.Current.SetControllerFactory(factory);
+        }
+
         protected void Application_Start()
         {
+            var container = new UnityContainer();
+            RegisterTypes(container);
+            RegisterControllerFactory(container);
+
             AreaRegistration.RegisterAllAreas();
 
             RegisterGlobalFilters(GlobalFilters.Filters);
