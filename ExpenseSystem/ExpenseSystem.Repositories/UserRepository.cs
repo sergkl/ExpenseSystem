@@ -29,13 +29,13 @@ namespace ExpenseSystem.Repositories
                 if (response.Object == null)
                 {
                     response.IsError = true;
-                    response.Errors.Add("User hasn't been found");
+                    response.Errors.Add(Error.UserHasNotBeFound);
                 }
             }
             else
             {
                 response.IsError = true;
-                response.Errors.Add("User hasn't been found");
+                response.Errors.Add(Error.UserHasNotBeFound);
             }
             return response;
         }
@@ -74,17 +74,6 @@ namespace ExpenseSystem.Repositories
             context.Users.DeleteObject(entity);
             context.Save();
             return response;
-        }
-
-        /// <summary>
-        /// Method returns list of users with base information, like identifier and names
-        /// </summary>
-        /// <returns>List of users</returns>
-        public List<BaseUserInfo> GetBaseUsersInfo()
-        {
-            List<BaseUserInfo> usersList = new List<BaseUserInfo>();
-            context.Users.ToList().ForEach(a => usersList.Add(new BaseUserInfo() { Id = a.Id, FirstName = a.FirstName, MiddleName = a.MiddleName, LastName = a.LastName }));
-            return usersList;
         }
 
         /// <summary>

@@ -169,6 +169,10 @@
     <Content Include="Views\Shared\_UnregisteredLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ExpenseSystem.Common\ExpenseSystem.Common.csproj">
+      <Project>{014B0DAD-2C7B-4656-BBA2-81DF38DD1285}</Project>
+      <Name>ExpenseSystem.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ExpenseSystem.Entities\ExpenseSystem.Entities.csproj">
       <Project>{9DE4038F-4055-45D5-AD4F-FAE8E93DF784}</Project>
       <Name>ExpenseSystem.Entities</Name>

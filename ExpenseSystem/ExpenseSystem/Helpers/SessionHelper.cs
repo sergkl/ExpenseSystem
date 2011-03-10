@@ -29,7 +29,7 @@ namespace ExpenseSystem.Helpers
         {
             get
             {
-                if (Session[SessionVariables.UserId.ToString()] != null)
+                if (Session != null && Session[SessionVariables.UserId.ToString()] != null)
                     return (int)Session[SessionVariables.UserId.ToString()];
                 else
                     return 0;
@@ -44,7 +44,7 @@ namespace ExpenseSystem.Helpers
         {
             get
             {
-                if (Session[SessionVariables.UserId.ToString()] != null)
+                if (Session != null && Session[SessionVariables.UserName.ToString()] != null)
                     return (string)Session[SessionVariables.UserName.ToString()];
                 else
                     return null;

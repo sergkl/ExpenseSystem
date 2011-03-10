@@ -9,12 +9,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseSystem.Entities", "E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseSystem.Repositories", "ExpenseSystem.Repositories\ExpenseSystem.Repositories.csproj", "{DA504E0F-CE8B-4202-AD18-C39FDDF8241D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseSystem.MSpecTests", "ExpenseSystem.MSpecTests\ExpenseSystem.MSpecTests.csproj", "{7F077652-AFEC-4AE5-9FEB-7CD150FB3786}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseSystem.Behavior", "ExpenseSystem.MSpecTests\ExpenseSystem.Behavior.csproj", "{7F077652-AFEC-4AE5-9FEB-7CD150FB3786}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependenses", "Dependenses", "{9192E854-B4AC-439B-935F-91E774321FEE}"
 	ProjectSection(SolutionItems) = preProject
 		Dependenses\Machine.Specifications.dll = Dependenses\Machine.Specifications.dll
 		Dependenses\Microsoft.Practices.Unity.dll = Dependenses\Microsoft.Practices.Unity.dll
+		Dependenses\Moq.dll = Dependenses\Moq.dll
+		Dependenses\MvcContrib.dll = Dependenses\MvcContrib.dll
+		Dependenses\MvcContrib.TestHelper.dll = Dependenses\MvcContrib.TestHelper.dll
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseSystem.Common", "ExpenseSystem.Common\ExpenseSystem.Common.csproj", "{014B0DAD-2C7B-4656-BBA2-81DF38DD1285}"

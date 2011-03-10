@@ -13,6 +13,7 @@ using ExpenseSystem.Repositories.Responses;
 using ExpenseSystem.Entities;
 using ExpenseSystem.Repositories.Interfaces;
 using Microsoft.Practices.Unity;
+using ExpenseSystem.Common;
 
 namespace ExpenseSystem.Controllers
 {
@@ -75,12 +76,12 @@ namespace ExpenseSystem.Controllers
         {
             if (UserRepository.IsLoginExists(registrationViewModel.Login))
             {
-                ModelState.AddModelError("Login", "Current login is busy. Choose another one");
+                ModelState.AddModelError("Login", Error.CurrentLoginExists);
             }
 
             if (!string.Equals(registrationViewModel.Password, registrationViewModel.ConfirmPassword))
             {
-                ModelState.AddModelError("Password", "Password and confirm. password aren't the same");
+                ModelState.AddModelError("Password", Error.PasswordsMismatch);
             }
 
             if (ModelState.IsValid)
@@ -92,15 +93,13 @@ namespace ExpenseSystem.Controllers
                 user.Id = response.Id;
 
                 TagRepository.Add(user.Id, new Tag() { Name = "ExpensesTag" });
-
-                SessionVars.UserId = user.Id;
-                SessionVars.UserName = string.Format("{0} {1} {2}", user.FirstName, user.MiddleName, user.LastName).Replace("  ", " "); //The last replacing will work when user don't have middle name. It will correct full name format.
                 var ticket = new FormsAuthenticationTicket(1, user.Login, DateTime.Now, DateTime.Now.AddSeconds(1800), false, "SimpleUser"); //TODO: Implement more rolles if it will be needed for the task, or I could user MemberShip provide. Just wanted to show my experience with authentication.
-
                 var strEncryptedTicket = FormsAuthentication.Encrypt(ticket);
                 var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, strEncryptedTicket);
                 Response.Cookies.Add(cookie);
 
+                SessionVars.UserId = user.Id;
+                SessionVars.UserName = string.Format("{0} {1} {2}", user.FirstName, user.MiddleName, user.LastName).Replace("  ", " "); //The last replacing will work when user don't have middle name. It will correct full name format.
                 return RedirectToAction("Index", "Home");
             }
             else

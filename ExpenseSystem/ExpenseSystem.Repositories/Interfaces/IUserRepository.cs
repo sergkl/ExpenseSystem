@@ -9,8 +9,6 @@ namespace ExpenseSystem.Repositories.Interfaces
 {
     public interface IUserRepository : IEntityRepository<User>
     {
-        List<BaseUserInfo> GetBaseUsersInfo();
-
         bool IsLoginExists(string login);
 
         GetObjectResponse<User> GetUserByCredentials(string login, string password);
