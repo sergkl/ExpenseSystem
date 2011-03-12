@@ -1,18 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
+using ExpenseSystem.Common;
 using ExpenseSystem.Entities;
 using ExpenseSystem.Model;
-using ExpenseSystem.Repositories.Responses;
-using System.Data.Objects;
-using ExpenseSystem.Common;
 using ExpenseSystem.Repositories.Interfaces;
+using ExpenseSystem.Repositories.Responses;
 
 namespace ExpenseSystem.Repositories
 {
+    /// <summary>
+    /// Repository which helps working with users set
+    /// </summary>
     public class UserRepository : IUserRepository
     {
+        /// <summary>
+        /// Context for repository
+        /// </summary>
         private readonly ExpenseSystemEntities context;
 
         public UserRepository(ExpenseSystemEntities context)
@@ -20,6 +22,12 @@ namespace ExpenseSystem.Repositories
             this.context = context;
         }
 
+        /// <summary>
+        /// Get entity by identifier
+        /// </summary>
+        /// <param name="userId">User identifier</param>
+        /// <param name="id">Entity identifier</param>
+        /// <returns>Returned entity</returns>
         public GetObjectResponse<User> GetById(int userId, int id)
         {
             GetObjectResponse<User> response = new GetObjectResponse<User>();
@@ -29,17 +37,23 @@ namespace ExpenseSystem.Repositories
                 if (response.Object == null)
                 {
                     response.IsError = true;
-                    response.Errors.Add(Error.UserHasNotBeFound);
+                    response.Errors.Add(Error.UserHasNotBeenFound);
                 }
             }
             else
             {
                 response.IsError = true;
-                response.Errors.Add(Error.UserHasNotBeFound);
+                response.Errors.Add(Error.UserHasNotBeenFound);
             }
             return response;
         }
 
+        /// <summary>
+        /// Add new entity to database
+        /// </summary>
+        /// <param name="userId">User Identifier</param>
+        /// <param name="entity">Entity</param>
+        /// <returns>Entity identifier</returns>
         public AddResponse Add(int userId, User entity)
         {
             AddResponse addResponse = new AddResponse();
@@ -57,7 +71,7 @@ namespace ExpenseSystem.Repositories
             {
                 addResponse.IsError = true;
                 addResponse.Id = 0;
-                addResponse.Errors.Add(Error.UserHasntProvidedNotFullNeededInformation);
+                addResponse.Errors.Add(Error.UserProvidedNotFullNeededInformation);
             }
             else
             {
@@ -68,6 +82,12 @@ namespace ExpenseSystem.Repositories
             return addResponse;
         }
 
+        /// <summary>
+        /// Delete entity from datase
+        /// </summary>
+        /// <param name="userId">User identifier</param>
+        /// <param name="entity">Entity identifier</param>
+        /// <returns>Execution result</returns>
         public Response Delete(int userId, User entity)
         {
             Response response = new Response();

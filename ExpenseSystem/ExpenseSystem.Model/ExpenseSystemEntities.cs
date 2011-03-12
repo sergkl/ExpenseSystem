@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Data.Objects;
 using System.Data.EntityClient;
+using System.Data.Objects;
 using ExpenseSystem.Entities;
 
 namespace ExpenseSystem.Model
