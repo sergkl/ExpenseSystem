@@ -6,3 +6,11 @@ D:\Projects\ExpenseSystemDB\ExpenseSystemDB\sql\debug\test_Script.PostDeployment
 D:\Projects\ExpenseSystemDB\ExpenseSystemDB\sql\debug\test_Database.sqlsettings
 D:\Projects\ExpenseSystemDB\ExpenseSystemDB\sql\debug\test_Database.sqldeployment
 D:\Projects\ExpenseSystemDB\ExpenseSystemDB\sql\debug\test_Database.sqlcmdvars
+D:\Projects\ExpenseSystem\ExpenseSystemDB\ExpenseSystemDB\sql\debug\test_Script.PreDeployment.sql
+D:\Projects\ExpenseSystem\ExpenseSystemDB\ExpenseSystemDB\sql\debug\test_Script.PostDeployment.sql
+D:\Projects\ExpenseSystem\ExpenseSystemDB\ExpenseSystemDB\sql\debug\test_Database.sqlsettings
+D:\Projects\ExpenseSystem\ExpenseSystemDB\ExpenseSystemDB\sql\debug\test_Database.sqldeployment
+D:\Projects\ExpenseSystem\ExpenseSystemDB\ExpenseSystemDB\sql\debug\test_Database.sqlcmdvars
+D:\Projects\ExpenseSystem\ExpenseSystemDB\ExpenseSystemDB\sql\debug\ExpenseSystemDB.deploymanifest
+D:\Projects\ExpenseSystem\ExpenseSystemDB\ExpenseSystemDB\sql\debug\ExpenseSystemDB.dbschema
+D:\Projects\ExpenseSystem\ExpenseSystemDB\ExpenseSystemDB\obj\Debug\ExpenseSystemDB.dbschema

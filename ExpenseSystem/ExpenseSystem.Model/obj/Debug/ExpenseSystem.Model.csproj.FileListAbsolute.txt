@@ -1,11 +1,3 @@
-D:\Projects\ExpenseSystem\ExpenseSystem.Model\bin\Debug\ExpenseSystem.Model.dll.config
-D:\Projects\ExpenseSystem\ExpenseSystem.Model\bin\Debug\ExpenseSystem.Model.dll
-D:\Projects\ExpenseSystem\ExpenseSystem.Model\bin\Debug\ExpenseSystem.Model.pdb
-D:\Projects\ExpenseSystem\ExpenseSystem.Model\bin\Debug\ExpenseSystem.Entities.dll
-D:\Projects\ExpenseSystem\ExpenseSystem.Model\bin\Debug\ExpenseSystem.Entities.pdb
-D:\Projects\ExpenseSystem\ExpenseSystem.Model\obj\Debug\ResolveAssemblyReference.cache
-D:\Projects\ExpenseSystem\ExpenseSystem.Model\obj\Debug\ExpenseSystem.Model.dll
-D:\Projects\ExpenseSystem\ExpenseSystem.Model\obj\Debug\ExpenseSystem.Model.pdb
 D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem.Model\bin\Debug\ExpenseSystem.Model.dll.config
 D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem.Model\bin\Debug\ExpenseSystem.Model.dll
 D:\Projects\ExpenseSystem\ExpenseSystem\ExpenseSystem.Model\bin\Debug\ExpenseSystem.Model.pdb

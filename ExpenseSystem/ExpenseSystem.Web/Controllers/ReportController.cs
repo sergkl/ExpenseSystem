@@ -33,6 +33,7 @@ namespace ExpenseSystem.Controllers
         /// Action sets initial values for date range.
         /// </summary>
         /// <returns></returns>
+        [HttpGet]
         public ActionResult Index()
         {
             IndexViewModel indexViewModel = new IndexViewModel();
@@ -47,6 +48,7 @@ namespace ExpenseSystem.Controllers
         /// <param name="indexViewModel">The model which contains start and end date</param>
         /// <returns>Tree of tags with statistical information</returns>
         [HttpPost]
+        [PreventCSRF]
         public ActionResult Index(IndexViewModel indexViewModel)
         {
             if (indexViewModel.StartDate > indexViewModel.EndDate)

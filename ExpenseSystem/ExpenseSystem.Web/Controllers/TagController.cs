@@ -22,6 +22,7 @@ namespace ExpenseSystem.Controllers
         /// Action gets tag with children and tag for all levels in the tree at all using user identifier
         /// </summary>
         /// <returns></returns>
+        [HttpGet]
         public ActionResult GetTagsTree()
         {
             if (SessionVars.UserId != 0)
@@ -43,6 +44,8 @@ namespace ExpenseSystem.Controllers
         /// </summary>
         /// <param name="tagId">Tag identifier</param>
         /// <returns>Execution result as json structure</returns>
+        [HttpPost]
+        [PreventCSRF]
         public ActionResult DeleteTag(int tagId)
         {
             Response response = TagRepository.DeleteById(SessionVars.UserId, tagId);
@@ -55,6 +58,8 @@ namespace ExpenseSystem.Controllers
         /// <param name="name">Name for new tag</param>
         /// <param name="parentId">Parent identifier</param>
         /// <returns>Execution result as json structure</returns>
+        [HttpPost]
+        [PreventCSRF]
         public ActionResult AddTag(string name, int? parentId)
         {
             if (parentId == null)
@@ -69,6 +74,8 @@ namespace ExpenseSystem.Controllers
         /// <param name="tagId">Tag identifier</param>
         /// <param name="tagName">New tag name</param>
         /// <returns>Execution result as json structure</returns>
+        [HttpPost]
+        [PreventCSRF]
         public ActionResult ChangeTagName(int tagId, string tagName)
         {
             Response response = TagRepository.ChangeTagName(SessionVars.UserId, tagId, tagName);

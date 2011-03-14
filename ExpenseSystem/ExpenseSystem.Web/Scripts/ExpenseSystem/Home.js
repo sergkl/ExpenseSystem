@@ -11,7 +11,7 @@ $(document).ready(function () {
 
     //Attaching onClick event when we click on the "Add tag" button
     $('#addTagButton').click(addTag);
-    
+
     //Attaching onClick event when we click on the "Edit tag" button
     $('#editTagButton').click(editTag);
 
@@ -39,7 +39,7 @@ function deleteExpenseRecord(recordRow) {
         $.ajax({
             url: "/Expense/DeleteExpenseRecord",
             type: "POST",
-            data: { expenseRecordId: expenseRecordId.replace("expenseRecord_", "") },
+            data: { sessionId: gSessionId, expenseRecordId: expenseRecordId.replace("expenseRecord_", "") },
             dataType: "json",
             success: function (data) {
                 //If deleting was successfull then we delete record from client side (So we delete row from expense record table)
@@ -77,6 +77,7 @@ function editExpenseRecord(recordRow) {
         $('.' + valueContainers[i], recordRow).append(descriptionInput);
         if (valueContainers[i] == "tdDateStamp") {
             descriptionInput.datepicker();
+            descriptionInput.datepicker("option", "dateFormat", 'mm/dd/yy');
         }
     }
 }
@@ -117,7 +118,8 @@ function saveExpenseRecord(recordRow) {
     }
 
     //Check date format
-    if (isNaN(Date.parse(dateStamp))) {
+    var dateChecker = /^(|(0[1-9])|(1[0-2]))\/((0[1-9])|(1\d)|(2\d)|(3[0-1]))\/((\d{4}))$/;
+    if (!dateChecker.test(dateStamp)) {
         alert("Enter a valid date stamp");
         return;
     }
@@ -127,11 +129,11 @@ function saveExpenseRecord(recordRow) {
     var actionName;
     if ($(recordRow).attr("id") == "") { //new record
         actionName = "AddExpenseRecord";
-        dataToSend = { description: description, price: price, tagId: tagId, dateStamp: dateStamp };
+        dataToSend = { sessionId: gSessionId, description: description, price: price, tagId: tagId, dateStamp: dateStamp };
     }
     else {
         actionName = "EditExpenseRecord";
-        dataToSend = { description: description, price: price, tagId: tagId, dateStamp: dateStamp, expenseRecordId: $(recordRow).attr("id").replace("expenseRecord_", "") };
+        dataToSend = { sessionId: gSessionId, description: description, price: price, tagId: tagId, dateStamp: dateStamp, expenseRecordId: $(recordRow).attr("id").replace("expenseRecord_", "") };
     }
 
     //Send json structure to the server
@@ -214,7 +216,7 @@ function editTag() {
 function deleteTag() {
     selectedLi = $('#tagsTree .selected');
     $.post("/Tag/DeleteTag",
-            'tagId=' + selectedLi.attr("id").replace("tagId_", ""),
+            'sessionId=' + gSessionId + '&tagId=' + selectedLi.attr("id").replace("tagId_", ""),
             function (result) {
                 //If execution result was successfull then we remove branch of tag from client side
                 if (!result.IsError) {
@@ -246,7 +248,7 @@ function cancelEditing(editingControl) {
     if ($(editingControl).val() != "") {
         var valueArea = $(editingControl).parent().find("> .tagValue");
         $.post("/Tag/ChangeTagName",
-            'tagId=' + valueArea.parent().attr("id").replace("tagId_", "") + '&tagName=' + $(editingControl).val(),
+            'sessionId=' + gSessionId + '&tagId=' + valueArea.parent().attr("id").replace("tagId_", "") + '&tagName=' + $(editingControl).val(),
             function (result) {
                 if (!result.IsError) {
                     valueArea.text($(editingControl).val());
@@ -265,7 +267,7 @@ function cancelEditing(editingControl) {
 function addTag() {
     if ($('#tagsTree').length == 0) {   //If we don't have tree at all.
         $.post("/Tag/AddTag",
-            'name=New node&parentId=null',
+            'sessionId=' + gSessionId + '&name=New node&parentId=null',
             function (result) {
                 if (!result.IsError) {
                     var newTree = $('<ul id="tagsTree"></ul>');
@@ -293,7 +295,7 @@ function addTag() {
         if (selectedLi.length > 0) {
 
             $.post("/Tag/AddTag",
-            'name=New node&parentId=' + selectedLi.attr("id").replace("tagId_", ""),
+            'sessionId=' + gSessionId + '&name=New node&parentId=' + selectedLi.attr("id").replace("tagId_", ""),
             function (result) {
                 if (!result.IsError) {
                     var newId = "tagId_" + result.Id;
@@ -354,8 +356,9 @@ function joinStrings(strings) {
 function loadExpensesRecords(tagId, includeBranches) {
     $.ajax({
         url: "/Expense/GetExpenseRecords",
-        type: "POST",   //I used post in this situation, because IE caches the data and after clicking on choosed tag again, expense records will be shown as withouth changing.
-        data: { tagId: tagId, includeBranchesResuls: includeBranches },
+        type: "GET",
+        data: { sessionId: gSessionId, tagId: tagId, includeBranchesResuls: includeBranches },
+        cache: false,   //We shouldn't store cache, because expense records can be changed often.
         dataType: "html",
         success: function (data) {
             $('#expensesRecords').html(data);

@@ -32,7 +32,8 @@ namespace ExpenseSystem.Controllers
         /// <param name="tagId">Group tag. What data will search for.</param>
         /// <param name="includeBranchesResuls">Flag which shows should we include sub branches results or no</param>
         /// <returns>The partial view which contains tag names with all levels and list of expense records</returns>
-        [HttpPost]
+        [HttpGet]
+        [PreventCSRF]
         public ActionResult GetExpenseRecords(int tagId, bool includeBranchesResuls)
         {
             ExpensesViewModel expensesViewModel = new ExpensesViewModel();
@@ -54,6 +55,8 @@ namespace ExpenseSystem.Controllers
         /// <param name="tagId">Tag identifier</param>
         /// <param name="dateStamp">Date stamp</param>
         /// <returns>Execution result as json data</returns>
+        [HttpPost]
+        [PreventCSRF]
         public ActionResult AddExpenseRecord(string description, decimal price, int tagId, DateTime? dateStamp)
         {
             Response response = ExpenseRecordRepository.Add(SessionVars.UserId, description, price, tagId, dateStamp);
@@ -65,6 +68,8 @@ namespace ExpenseSystem.Controllers
         /// </summary>
         /// <param name="expenseRecordId">Expense record identifier</param>
         /// <returns>Execution result</returns>
+        [HttpPost]
+        [PreventCSRF]
         public ActionResult DeleteExpenseRecord(int expenseRecordId)
         {
             Response response = ExpenseRecordRepository.Delete(SessionVars.UserId, expenseRecordId);
@@ -81,6 +86,8 @@ namespace ExpenseSystem.Controllers
         /// <param name="tagId">Tag identifier</param>
         /// <param name="dateStamp">Date stamp. This data is used in forming reports</param>
         /// <returns>Execution result as json structure</returns>
+        [HttpPost]
+        [PreventCSRF]
         public ActionResult EditExpenseRecord(int expenseRecordId, string description, decimal price, int tagId, DateTime? dateStamp)
         {
             Response response = ExpenseRecordRepository.Edit(SessionVars.UserId, expenseRecordId, description, price, tagId, dateStamp);

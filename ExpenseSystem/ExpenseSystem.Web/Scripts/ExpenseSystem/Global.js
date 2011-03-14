@@ -13,3 +13,10 @@ $.ajaxSetup({
         $("#loadingArea").hide();
     }
 });
+
+//Variable to store session identifier to prevent CSRF attacks
+var gSessionId;
+$(document).ready(function () {
+    //Session identifier to prevent CSRF attacks
+    gSessionId = $('#sessionId').val();
+});

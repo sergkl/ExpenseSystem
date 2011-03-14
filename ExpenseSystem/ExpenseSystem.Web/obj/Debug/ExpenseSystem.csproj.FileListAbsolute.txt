@@ -1,5 +1,0 @@
-D:\Projects\ExpenseSystem\ExpenseSystem\bin\ExpenseSystem.dll
-D:\Projects\ExpenseSystem\ExpenseSystem\bin\ExpenseSystem.pdb
-D:\Projects\ExpenseSystem\ExpenseSystem\obj\Debug\ResolveAssemblyReference.cache
-D:\Projects\ExpenseSystem\ExpenseSystem\obj\Debug\ExpenseSystem.dll
-D:\Projects\ExpenseSystem\ExpenseSystem\obj\Debug\ExpenseSystem.pdb

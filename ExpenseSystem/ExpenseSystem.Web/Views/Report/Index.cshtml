@@ -20,6 +20,7 @@
         <div class="error">
             @Html.ValidationMessageFor(a => a.StartDate)<br />
             @Html.ValidationMessageFor(a => a.EndDate)
+            @Html.Hidden("SessionId", @Session.SessionID)
         </div>
     </div>
     }

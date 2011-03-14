@@ -151,11 +151,26 @@ namespace ExpenseSystem.Controllers
         {
             if (!filterContext.RequestContext.HttpContext.Request.IsAuthenticated)
             {
-                filterContext.HttpContext.Response.Redirect("/Account/LogOn?ReturnUrl=" + 
-                    HttpUtility.UrlEncode(filterContext.HttpContext.Request.RawUrl));              
+                filterContext.Result = new RedirectResult("/Account/LogOn?ReturnUrl=");             
             }
 
             base.OnActionExecuting(filterContext);
+        }
+    }
+
+    public class PreventCSRF : ActionFilterAttribute
+    {
+        public override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            string sessionId = filterContext.RequestContext.HttpContext.Request.Params["sessionId"];
+            if (sessionId != null && sessionId == filterContext.HttpContext.Session.SessionID)
+            {
+                base.OnActionExecuting(filterContext);
+            }
+            else if (!filterContext.HttpContext.Response.IsRequestBeingRedirected)
+            {
+                filterContext.Result = new RedirectResult("/Account/LogOn?ReturnUrl=");
+            }
         }
     }
 }

@@ -10,6 +10,7 @@ namespace ExpenseSystem.ViewModels.Report
     /// </summary>
     public class IndexViewModel
     {
+        public string SessionId { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public decimal TotalSpentAmount { get; set; }
