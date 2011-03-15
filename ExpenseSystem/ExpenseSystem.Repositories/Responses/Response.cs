@@ -1,19 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.ObjectModel;
 
 namespace ExpenseSystem.Repositories.Responses
 {
     public class Response
     {
-        public bool IsError;
-        public List<string> Errors;
+        private readonly Collection<string> errors;
+
+        public bool IsError { get; set; }
+        public Collection<string> Errors
+        {
+            get { return errors; }
+        }
 
         public Response()
         {
             IsError = false;
-            Errors = new List<string>();
+            errors = new Collection<string>();
         }
     }
 }

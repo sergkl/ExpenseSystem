@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using ExpenseSystem.Entities;
 
-namespace ExpenseSystem.ViewModels.Home
+namespace ExpenseSystem.ViewModels.Expense
 {
     /// <summary>
     /// ExpensesViewModel view model contains intermediate data between DTO object and view

@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Web.Mvc;
-using ExpenseSystem.Repositories;
 using ExpenseSystem.Repositories.Interfaces;
-using ExpenseSystem.Repositories.Responses;
-using ExpenseSystem.ViewModels.Home;
 using Microsoft.Practices.Unity;
+using ExpenseSystem.ViewModels.Expense;
 
 namespace ExpenseSystem.Controllers
 {
@@ -30,13 +28,12 @@ namespace ExpenseSystem.Controllers
         /// Action gets expense records
         /// </summary>
         /// <param name="tagId">Group tag. What data will search for.</param>
-        /// <param name="includeBranchesResuls">Flag which shows should we include sub branches results or no</param>
         /// <returns>The partial view which contains tag names with all levels and list of expense records</returns>
         [HttpGet]
         [PreventCSRF]
-        public ActionResult GetExpenseRecords(int tagId, bool includeBranchesResuls)
+        public ActionResult GetExpenseRecords(int tagId)
         {
-            ExpensesViewModel expensesViewModel = new ExpensesViewModel();
+            var expensesViewModel = new ExpensesViewModel();
             expensesViewModel.ExpenseRecords = ExpenseRecordRepository.GetExpenseRecordsByTag(SessionVars.UserId, tagId).Object;
             expensesViewModel.TagsFullWay = TagRepository.GetTagFullName(SessionVars.UserId, tagId).Object;
             return PartialView("ExpenseRecordsPartial", expensesViewModel);
@@ -59,7 +56,7 @@ namespace ExpenseSystem.Controllers
         [PreventCSRF]
         public ActionResult AddExpenseRecord(string description, decimal price, int tagId, DateTime? dateStamp)
         {
-            Response response = ExpenseRecordRepository.Add(SessionVars.UserId, description, price, tagId, dateStamp);
+            var response = ExpenseRecordRepository.Add(SessionVars.UserId, description, price, tagId, dateStamp);
             return Json(response, JsonRequestBehavior.AllowGet);
         }
 
@@ -72,7 +69,7 @@ namespace ExpenseSystem.Controllers
         [PreventCSRF]
         public ActionResult DeleteExpenseRecord(int expenseRecordId)
         {
-            Response response = ExpenseRecordRepository.Delete(SessionVars.UserId, expenseRecordId);
+            var response = ExpenseRecordRepository.Delete(SessionVars.UserId, expenseRecordId);
             return Json(response, JsonRequestBehavior.AllowGet);
         }
 
@@ -90,7 +87,7 @@ namespace ExpenseSystem.Controllers
         [PreventCSRF]
         public ActionResult EditExpenseRecord(int expenseRecordId, string description, decimal price, int tagId, DateTime? dateStamp)
         {
-            Response response = ExpenseRecordRepository.Edit(SessionVars.UserId, expenseRecordId, description, price, tagId, dateStamp);
+            var response = ExpenseRecordRepository.Edit(SessionVars.UserId, expenseRecordId, description, price, tagId, dateStamp);
             return Json(response, JsonRequestBehavior.AllowGet);
         }
     }

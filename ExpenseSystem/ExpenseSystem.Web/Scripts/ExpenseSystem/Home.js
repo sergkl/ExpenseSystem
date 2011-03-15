@@ -365,7 +365,9 @@ function loadExpensesRecords(tagId, includeBranches) {
             $('.addExpenseRecordButton').click(addExpenseRecord);
             $.each($('tr[class=expenseRecord]'), function () { assignExpenseRecordEvents(this); });
         },
-        error: function () {
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert(xhr.status);
+            alert(thrownError);
             alert('Server is busy. Try again later.');
         }
     });

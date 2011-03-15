@@ -16,7 +16,7 @@ namespace ExpenseSystem.Controllers
         /// <summary>
         /// Base controller, constructor: initialize sessions and user name
         /// </summary>
-        public BaseController()
+        protected BaseController()
         {
             SessionVars = new SessionHelper();
             ViewData["UserName"] = SessionVars.UserName;

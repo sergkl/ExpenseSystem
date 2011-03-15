@@ -24,7 +24,7 @@ namespace When
             //Init mock data
             Response response = new Response();
             response.IsError = true;
-            response.Errors.Add(Error.ExpenseRecordDataIsNotSet);
+            response.Errors.Add(Error.ExpenseRecordHasNotBeenSet);
             controller.SessionVars.UserId = 1;
             mockExpenseRecordRepository.Setup(p => p.Edit(controller.SessionVars.UserId, expenseRecordId, description, price, tagId, dateStamp)).Returns(response);
             controller.ExpenseRecordRepository = mockExpenseRecordRepository.Object;
@@ -32,7 +32,7 @@ namespace When
 
         Because of = () => { result = controller.EditExpenseRecord(expenseRecordId, description, price, tagId, dateStamp); };
 
-        It expense_record_should_be_added = () => ((result as JsonResult).Data as Response).Errors[0].ShouldEqual(Error.ExpenseRecordDataIsNotSet);
+        It expense_record_should_be_added = () => ((result as JsonResult).Data as Response).Errors[0].ShouldEqual(Error.ExpenseRecordHasNotBeenSet);
 
         static int expenseRecordId;
         static string description;

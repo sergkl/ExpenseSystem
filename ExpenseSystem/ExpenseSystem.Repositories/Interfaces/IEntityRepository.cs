@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using ExpenseSystem.Repositories.Responses;
+﻿using ExpenseSystem.Repositories.Responses;
 
 namespace ExpenseSystem.Repositories.Interfaces
 {

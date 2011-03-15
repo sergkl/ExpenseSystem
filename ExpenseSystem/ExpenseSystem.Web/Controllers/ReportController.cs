@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Web.Mvc;
-using ExpenseSystem.Entities;
 using ExpenseSystem.Repositories;
 using ExpenseSystem.ViewModels.Report;
 using Microsoft.Practices.Unity;
@@ -36,7 +35,7 @@ namespace ExpenseSystem.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            IndexViewModel indexViewModel = new IndexViewModel();
+            var indexViewModel = new IndexViewModel();
             indexViewModel.StartDate = DateTime.Now.AddMonths(-1).Date;
             indexViewModel.EndDate = DateTime.Now.Date;
             return View(indexViewModel);
@@ -60,8 +59,8 @@ namespace ExpenseSystem.Controllers
             {
                 startDate = indexViewModel.StartDate;
                 endDate = indexViewModel.EndDate;
-                Tag tag = TagRepository.GetParentTagByUserId(SessionVars.UserId).Object;
-                TagResult tagResult = new TagResult();
+                var tag = TagRepository.GetParentTagByUserId(SessionVars.UserId).Object;
+                var tagResult = new TagResult();
                 tagResult.TagId = tag.Id;
                 indexViewModel.ParentTagResult = GetTagResult(tagResult);
                 CalculatePercents(indexViewModel.ParentTagResult, indexViewModel.ParentTagResult.SpentAmount);
@@ -80,12 +79,12 @@ namespace ExpenseSystem.Controllers
         /// <returns>Tag with results for report, without percentage values.</returns>
         private TagResult GetTagResult(TagResult tagResult)
         {
-            Tag tag = TagRepository.GetById(SessionVars.UserId, tagResult.TagId).Object;
+            var tag = TagRepository.GetById(SessionVars.UserId, tagResult.TagId).Object;
             tagResult.SpentAmount = TagRepository.GetSpentAmountByTag(SessionVars.UserId, tagResult.TagId, startDate, endDate).Object;
             tagResult.TagName = tag.Name;
-            foreach (Tag childTag in tag.Children)
+            foreach (var childTag in tag.Children)
             {
-                TagResult childTagResult = new TagResult();
+                var childTagResult = new TagResult();
                 childTagResult.TagId = childTag.Id;
                 tagResult.Children.Add(GetTagResult(childTagResult));
             }
@@ -101,7 +100,7 @@ namespace ExpenseSystem.Controllers
         private TagResult CalculatePercents(TagResult tagResult, decimal totalAmount)
         {
             tagResult.Percentage = Math.Round(Convert.ToDouble(tagResult.SpentAmount / totalAmount) * 100.0, 2);
-            foreach (TagResult child in tagResult.Children)
+            foreach (var child in tagResult.Children)
             {
                 CalculatePercents(child, totalAmount);
             }

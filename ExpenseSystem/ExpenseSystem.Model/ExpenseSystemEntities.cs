@@ -5,7 +5,7 @@ using ExpenseSystem.Entities;
 
 namespace ExpenseSystem.Model
 {
-    public partial class ExpenseSystemEntities : ObjectContext, IContext
+    public class ExpenseSystemEntities : ObjectContext, IContext
     {
         public const string ConnectionString = "name=ExpenseSystemEntities";
         public const string ContainerName = "ExpenseSystemEntities";
@@ -13,19 +13,19 @@ namespace ExpenseSystem.Model
         public ExpenseSystemEntities()
             : base(ConnectionString, ContainerName)
         {
-            this.ContextOptions.LazyLoadingEnabled = true;
+            ContextOptions.LazyLoadingEnabled = true;
         }
 
         public ExpenseSystemEntities(string connectionString)
             : base(connectionString, ContainerName)
         {
-            this.ContextOptions.LazyLoadingEnabled = true;
+            ContextOptions.LazyLoadingEnabled = true;
         }
 
         public ExpenseSystemEntities(EntityConnection connection)
             : base(connection, ContainerName)
         {
-            this.ContextOptions.LazyLoadingEnabled = true;
+            ContextOptions.LazyLoadingEnabled = true;
         }
 
         #region Object set properties
@@ -52,7 +52,7 @@ namespace ExpenseSystem.Model
 
         public string Save()
         {
-            string savingResult = "Success";
+            var savingResult = "Success";
             try
             {
                 SaveChanges();

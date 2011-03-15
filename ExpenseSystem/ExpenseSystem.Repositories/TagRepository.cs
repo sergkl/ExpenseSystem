@@ -1,10 +1,10 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
+using ExpenseSystem.Common;
 using ExpenseSystem.Entities;
 using ExpenseSystem.Model;
 using ExpenseSystem.Repositories.Interfaces;
 using ExpenseSystem.Repositories.Responses;
-using ExpenseSystem.Common;
+using System;
 
 namespace ExpenseSystem.Repositories
 {
@@ -31,20 +31,21 @@ namespace ExpenseSystem.Repositories
         /// <returns>Returned tag</returns>
         public GetObjectResponse<Tag> GetById(int userId, int id)
         {
-            GetObjectResponse<Tag> response = new GetObjectResponse<Tag>();
+            var response = new GetObjectResponse<Tag>();
             response.Object = context.Tags.FirstOrDefault(a => a.Id == id);
             return response;
         }
 
         /// <summary>
-        /// Add new tag to database
+        /// Add tag to database
         /// </summary>
-        /// <param name="userId">User Identifier</param>
-        /// <param name="entity">Tag</param>
-        /// <returns>Tag identifier</returns>
+        /// <param name="userId">User identifier</param>
+        /// <param name="name">Caption for new tag</param>
+        /// <param name="parentId">Parent identifier for tag</param>
+        /// <returns>Execution result with identifier for new tag</returns>
         public AddResponse Add(int userId, string name, int parentId)
         {
-            AddResponse addResponse = new AddResponse();
+            var addResponse = new AddResponse();
             if (string.IsNullOrEmpty(name))
             {
                 addResponse.IsError = true;
@@ -52,8 +53,7 @@ namespace ExpenseSystem.Repositories
             }
             else
             {
-                Tag tag = new Tag();
-                Tag parent = context.Tags.Where(a => a.Id == parentId).First();
+                var tag = new Tag();
                 tag.Parent = GetById(userId, parentId).Object;
                 tag.Name = name;
                 tag.User = new UserRepository(context).GetById(userId, userId).Object;
@@ -72,13 +72,20 @@ namespace ExpenseSystem.Repositories
         /// <returns>Execution result</returns>
         public Response Delete(int userId, Tag entity)
         {
-            while (entity.Children.Count > 0)
+            var response = new Response();
+            if (entity == null)
             {
-                Delete(userId, entity.Children.First());
+                response.Errors.Add(Error.TagNameHasNotBeenSet);
             }
-            context.Tags.DeleteObject(entity);
-            context.Save();
-            Response response = new Response();
+            else
+            {
+                while (entity.Children.Count > 0)
+                {
+                    Delete(userId, entity.Children.First());
+                }
+                context.Tags.DeleteObject(entity);
+                context.Save();
+            }
             return response;
         }
 
@@ -89,7 +96,7 @@ namespace ExpenseSystem.Repositories
         /// <returns>Execution result with object as main tag</returns>
         public GetObjectResponse<Tag> GetParentTagByUserId(int userId)
         {
-            GetObjectResponse<Tag> response = new GetObjectResponse<Tag>();
+            var response = new GetObjectResponse<Tag>();
             response.Object = context.Tags.FirstOrDefault(a => a.Parent == null && a.User.Id == userId);
             return response;
         }
@@ -103,7 +110,7 @@ namespace ExpenseSystem.Repositories
         /// <returns>Execution result of changing name</returns>
         public Response ChangeTagName(int userId, int tagId, string tagName)
         {
-            Response response = new Response();
+            var response = new Response();
             if (string.IsNullOrEmpty(tagName))
             {
                 response.IsError = true;
@@ -111,7 +118,7 @@ namespace ExpenseSystem.Repositories
             }
             else
             {
-                Tag tag = GetById(userId, tagId).Object;
+                var tag = GetById(userId, tagId).Object;
                 tag.Name = tagName;
                 context.Save();
             }
@@ -119,19 +126,26 @@ namespace ExpenseSystem.Repositories
         }
 
         /// <summary>
-        /// Add tag to database
+        /// Add new tag to database
         /// </summary>
-        /// <param name="userId">User identifier</param>
-        /// <param name="name">Caption for new tag</param>
-        /// <param name="parentId">Parent identifier for tag</param>
-        /// <returns>Execution result with identifier for new tag</returns>
+        /// <param name="userId">User Identifier</param>
+        /// <param name="entity">Tag</param>
+        /// <returns>Tag identifier</returns>
         public AddResponse Add(int userId, Tag entity)
         {
-            AddResponse addResponse = new AddResponse();
-            entity.User = new UserRepository(context).GetById(userId, userId).Object;
-            context.Tags.AddObject(entity);
-            context.Save();
-            addResponse.Id = entity.Id;
+            var addResponse = new AddResponse();
+            if (entity == null)
+            {
+                addResponse.IsError = true;
+                addResponse.Errors.Add(Error.TagNameHasNotBeenSet);
+            }
+            else
+            {
+                entity.User = new UserRepository(context).GetById(userId, userId).Object;
+                context.Tags.AddObject(entity);
+                context.Save();
+                addResponse.Id = entity.Id;
+            }
             return addResponse;
         }
 
@@ -143,8 +157,8 @@ namespace ExpenseSystem.Repositories
         /// <returns>Execution result</returns>
         public Response DeleteById(int userId, int tagId)
         {
-            Response response = new Response();
-            Tag tag = context.Tags.Where(a => a.Id == tagId).FirstOrDefault();
+            var response = new Response();
+            var tag = context.Tags.Where(a => a.Id == tagId).FirstOrDefault();
             if (tag == null)
             {
                 response.IsError = true;
@@ -169,10 +183,10 @@ namespace ExpenseSystem.Repositories
         /// <returns>Tag full name</returns>
         public GetObjectResponse<string> GetTagFullName(int userId, int tagId)
         {
-            GetObjectResponse<string> response = new GetObjectResponse<string>();
-            Tag tag = GetById(userId, tagId).Object;
+            var response = new GetObjectResponse<string>();
+            var tag = GetById(userId, tagId).Object;
             response.Object = tag.Name;
-            Tag parent = tag.Parent;
+            var parent = tag.Parent;
             while (parent != null && parent.Name != "ExpensesTag")
             {
                 response.Object = string.Format("{0}->", parent.Name) + response.Object;
@@ -182,17 +196,19 @@ namespace ExpenseSystem.Repositories
         }
 
         /// <summary>
-        /// Get spent money amount by tag. Method returns result including amount by all children branches
+        /// Get spent amount by tag
         /// </summary>
+        /// <param name="userId">User identifier</param>
+        /// <param name="tagId">Tag identifier</param>
         /// <param name="startDate">Start date</param>
         /// <param name="endDate">End date</param>
-        /// <returns></returns>
+        /// <returns>Execution result with sum. by choosen tag</returns>
         public GetObjectResponse<decimal> GetSpentAmountByTag(int userId, int tagId, DateTime startDate, DateTime endDate)
         {
-            Tag tag = GetById(userId, tagId).Object;
-            GetObjectResponse<decimal> response = new GetObjectResponse<decimal>();
+            var tag = GetById(userId, tagId).Object;
+            var response = new GetObjectResponse<decimal>();
             response.Object = tag.ExpenseRecords.Where(a => a.DateStamp >= startDate && a.DateStamp <= endDate).Sum(a => a.Price);
-            foreach (Tag childTag in tag.Children)
+            foreach (var childTag in tag.Children)
             {
                 response.Object += GetSpentAmountByTag(userId, childTag.Id, startDate, endDate).Object;
             }

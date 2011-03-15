@@ -4,7 +4,7 @@
 @foreach (var tag in Model)
 {
     <li>
-        <div class="tagValue">@string.Format("{0}  ({1}%)  {2:C}", tag.TagName.PadLeft(tag.Level * 5), tag.Percentage, tag.SpentAmount)</div>
+        <div class="tagValue">@string.Format("{0}  ({1}%)  {2:C}", tag.TagName, tag.Percentage, tag.SpentAmount)</div>
     @if (tag.Children.Count > 0)
     {
         <ul>

@@ -30,7 +30,7 @@ namespace ExpenseSystem.Repositories
         /// <returns>Returned entity</returns>
         public GetObjectResponse<User> GetById(int userId, int id)
         {
-            GetObjectResponse<User> response = new GetObjectResponse<User>();
+            var response = new GetObjectResponse<User>();
             if (userId == id)
             {
                 response.Object = context.Users.FirstOrDefault(a => a.Id == id);
@@ -56,7 +56,7 @@ namespace ExpenseSystem.Repositories
         /// <returns>Entity identifier</returns>
         public AddResponse Add(int userId, User entity)
         {
-            AddResponse addResponse = new AddResponse();
+            var addResponse = new AddResponse();
             if (entity == null)
             {
                 addResponse.IsError = true;
@@ -90,7 +90,7 @@ namespace ExpenseSystem.Repositories
         /// <returns>Execution result</returns>
         public Response Delete(int userId, User entity)
         {
-            Response response = new Response();
+            var response = new Response();
             context.Users.DeleteObject(entity);
             context.Save();
             return response;
@@ -103,11 +103,7 @@ namespace ExpenseSystem.Repositories
         /// <returns>Execution result</returns>
         public bool IsLoginExists(string login)
         {
-            Response response = new Response();
-            if (context.Users.Where(a => a.Login == login).Count() > 0)
-                return true;
-            else
-                return false;
+            return context.Users.Where(a => a.Login == login).Count() > 0;
         }
 
         /// <summary>
@@ -118,7 +114,7 @@ namespace ExpenseSystem.Repositories
         /// <returns>Execution result: if it is true then user has been passed validation otherwise it returns false</returns>
         public GetObjectResponse<User> GetUserByCredentials(string login, string password)
         {
-            GetObjectResponse<User> response = new GetObjectResponse<User>();
+            var response = new GetObjectResponse<User>();
             var users = context.Users.Where(a => a.Login == login && a.Password == password);
             if (users.Count() == 1)
             {

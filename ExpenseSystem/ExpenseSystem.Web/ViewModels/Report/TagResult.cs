@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 
 namespace ExpenseSystem.ViewModels.Report
 {
@@ -11,7 +8,6 @@ namespace ExpenseSystem.ViewModels.Report
     public class TagResult
     {
         public int TagId { get; set; }
-        public int Level { get; set; }
         public string TagName { get; set; }
         public decimal SpentAmount { get; set; }
         public double Percentage { get; set; }

@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Web;
 using System.Web.SessionState;
-using ExpenseSystem.Entities;
 
 namespace ExpenseSystem.Helpers
 {
     /// <summary>
     /// Session variables which are used to get session names
     /// </summary>
-    public enum SessionVariables
+    public enum SessionVariable
     {
         UserId,
         UserName
@@ -41,14 +37,14 @@ namespace ExpenseSystem.Helpers
         {
             get
             {
-                if (Session != null && Session[SessionVariables.UserId.ToString()] != null)
-                    return (int)Session[SessionVariables.UserId.ToString()];
+                if (Session != null && Session[SessionVariable.UserId.ToString()] != null)
+                    return (int)Session[SessionVariable.UserId.ToString()];
                 else
                     return 0;
             }
             set
             {
-                Session[SessionVariables.UserId.ToString()] = value;
+                Session[SessionVariable.UserId.ToString()] = value;
             }
         }
 
@@ -59,22 +55,22 @@ namespace ExpenseSystem.Helpers
         {
             get
             {
-                if (Session != null && Session[SessionVariables.UserName.ToString()] != null)
-                    return (string)Session[SessionVariables.UserName.ToString()];
+                if (Session != null && Session[SessionVariable.UserName.ToString()] != null)
+                    return (string)Session[SessionVariable.UserName.ToString()];
                 else
                     return null;
                 
             }
             set
             {
-                Session[SessionVariables.UserName.ToString()] = value;
+                Session[SessionVariable.UserName.ToString()] = value;
             }
         }
 
         /// <summary>
         /// Clear session
         /// </summary>
-        public void Clear()
+        public static void Clear()
         {
             Session.Abandon();
         }

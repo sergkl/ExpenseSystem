@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Machine.Specifications;
 using ExpenseSystem.Repositories.Responses;
-using MoqLib = Moq;
 using System.Web.Mvc;
 using ExpenseSystem.Behaviour;
 

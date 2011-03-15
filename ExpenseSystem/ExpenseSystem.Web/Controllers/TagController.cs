@@ -1,8 +1,6 @@
 ﻿using System.Web.Mvc;
 using ExpenseSystem.Repositories.Interfaces;
-using ExpenseSystem.Repositories.Responses;
 using Microsoft.Practices.Unity;
-using ExpenseSystem.Entities;
 
 namespace ExpenseSystem.Controllers
 {
@@ -27,7 +25,7 @@ namespace ExpenseSystem.Controllers
         {
             if (SessionVars.UserId != 0)
             {
-                GetObjectResponse<Tag> response = TagRepository.GetParentTagByUserId(SessionVars.UserId);
+                var response = TagRepository.GetParentTagByUserId(SessionVars.UserId);
                 if (!response.IsError)
                     return View("~/Views/Home/Index.cshtml", response.Object);
                 else
@@ -48,7 +46,7 @@ namespace ExpenseSystem.Controllers
         [PreventCSRF]
         public ActionResult DeleteTag(int tagId)
         {
-            Response response = TagRepository.DeleteById(SessionVars.UserId, tagId);
+            var response = TagRepository.DeleteById(SessionVars.UserId, tagId);
             return Json(response, JsonRequestBehavior.AllowGet);
         }
 
@@ -64,7 +62,7 @@ namespace ExpenseSystem.Controllers
         {
             if (parentId == null)
                 parentId = TagRepository.GetParentTagByUserId(SessionVars.UserId).Object.Id;
-            AddResponse response = TagRepository.Add(SessionVars.UserId, name, (int)parentId);
+            var response = TagRepository.Add(SessionVars.UserId, name, (int)parentId);
             return Json(response, JsonRequestBehavior.AllowGet);
         }
 
@@ -78,7 +76,7 @@ namespace ExpenseSystem.Controllers
         [PreventCSRF]
         public ActionResult ChangeTagName(int tagId, string tagName)
         {
-            Response response = TagRepository.ChangeTagName(SessionVars.UserId, tagId, tagName);
+            var response = TagRepository.ChangeTagName(SessionVars.UserId, tagId, tagName);
             return Json(response, JsonRequestBehavior.AllowGet);
         }
     }

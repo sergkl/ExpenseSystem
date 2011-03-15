@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using ExpenseSystem.Entities;
+﻿using ExpenseSystem.Entities;
 using ExpenseSystem.ViewModels.Account;
 
 namespace ExpenseSystem.Extensions
@@ -19,16 +15,20 @@ namespace ExpenseSystem.Extensions
         /// <returns>RegistrationViewModel object which contains data from User DTO object</returns>
         public static RegistrationViewModel ToViewModel(this User user)
         {
-            RegistrationViewModel userViewModel = new RegistrationViewModel();
-            userViewModel.Id = user.Id;
-            userViewModel.FirstName = user.FirstName;
-            userViewModel.MiddleName = user.MiddleName;
-            userViewModel.LastName = user.LastName;
-            userViewModel.Email = user.Email;
-            userViewModel.Phone = user.Phone;
-            userViewModel.Login = user.Login;
-            userViewModel.Password = user.Password;
-            userViewModel.ConfirmPassword = user.Password;
+            RegistrationViewModel userViewModel = null;
+            if (user != null)
+            {
+                userViewModel = new RegistrationViewModel();
+                userViewModel.Id = user.Id;
+                userViewModel.FirstName = user.FirstName;
+                userViewModel.MiddleName = user.MiddleName;
+                userViewModel.LastName = user.LastName;
+                userViewModel.Email = user.Email;
+                userViewModel.Phone = user.Phone;
+                userViewModel.Login = user.Login;
+                userViewModel.Password = user.Password;
+                userViewModel.ConfirmPassword = user.Password;
+            }
             return userViewModel;
         }
 
@@ -39,15 +39,19 @@ namespace ExpenseSystem.Extensions
         /// <returns>User DTO object which will be contain data from UserViewModel object</returns>
         public static User ToEntity(this RegistrationViewModel userViewModel)
         {
-            User user = new User();
-            user.Id = userViewModel.Id;
-            user.FirstName = userViewModel.FirstName;
-            user.MiddleName = userViewModel.MiddleName;
-            user.LastName = userViewModel.LastName;
-            user.Email = userViewModel.Email;
-            user.Phone = userViewModel.Phone;
-            user.Login = userViewModel.Login;
-            user.Password = userViewModel.Password;
+            User user = null;
+            if (userViewModel != null)
+            {
+                user = new User();
+                user.Id = userViewModel.Id;
+                user.FirstName = userViewModel.FirstName;
+                user.MiddleName = userViewModel.MiddleName;
+                user.LastName = userViewModel.LastName;
+                user.Email = userViewModel.Email;
+                user.Phone = userViewModel.Phone;
+                user.Login = userViewModel.Login;
+                user.Password = userViewModel.Password;
+            }
             return user;
         }
     }

@@ -5,10 +5,9 @@ using System.Web.Security;
 using ExpenseSystem.Common;
 using ExpenseSystem.Entities;
 using ExpenseSystem.Extensions;
+using ExpenseSystem.Helpers;
 using ExpenseSystem.Models;
-using ExpenseSystem.Repositories;
 using ExpenseSystem.Repositories.Interfaces;
-using ExpenseSystem.Repositories.Responses;
 using ExpenseSystem.ViewModels.Account;
 using Microsoft.Practices.Unity;
 using Dto = ExpenseSystem.Entities;
@@ -53,7 +52,7 @@ namespace ExpenseSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                Dto.User user = UserRepository.GetUserByCredentials(logOnViewModel.Login, logOnViewModel.Password).Object;
+                var user = UserRepository.GetUserByCredentials(logOnViewModel.Login, logOnViewModel.Password).Object;
                 if (user != null)
                 {
                     SessionVars.UserId = user.Id;
@@ -112,13 +111,13 @@ namespace ExpenseSystem.Controllers
 
             if (ModelState.IsValid)
             {
-                Dto.User user = registrationViewModel.ToEntity();
+                var user = registrationViewModel.ToEntity();
 
                 //Save / Register user
-                AddResponse response = UserRepository.Add(SessionVars.UserId, user);
+                var response = UserRepository.Add(SessionVars.UserId, user);
                 user.Id = response.Id;
 
-                TagRepository.Add(user.Id, new Tag() { Name = "ExpensesTag" });
+                TagRepository.Add(user.Id, new Tag { Name = "ExpensesTag" });
                 var ticket = new FormsAuthenticationTicket(1, user.Login, DateTime.Now, DateTime.Now.AddSeconds(1800), false, "SimpleUser"); //TODO: Implement more rolles if it will be needed for the task, or I could user MemberShip provide. Just wanted to show my experience with authentication.
                 var strEncryptedTicket = FormsAuthentication.Encrypt(ticket);
                 var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, strEncryptedTicket);
@@ -139,13 +138,14 @@ namespace ExpenseSystem.Controllers
         /// </summary>
         public ActionResult SignOut()
         {
-            SessionVars.Clear();
+            SessionHelper.Clear();
             FormsAuthentication.SignOut();
             return Redirect("~/");
         }
     }
 
-    public class UserAuthorize : ActionFilterAttribute
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
+    public sealed class UserAuthorizeAttribute : ActionFilterAttribute
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
@@ -158,11 +158,12 @@ namespace ExpenseSystem.Controllers
         }
     }
 
-    public class PreventCSRF : ActionFilterAttribute
+    [AttributeUsage(AttributeTargets.Method)]
+    public sealed class PreventCSRFAttribute : ActionFilterAttribute
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            string sessionId = filterContext.RequestContext.HttpContext.Request.Params["sessionId"];
+            var sessionId = filterContext.RequestContext.HttpContext.Request.Params["sessionId"];
             if (sessionId != null && sessionId == filterContext.HttpContext.Session.SessionID)
             {
                 base.OnActionExecuting(filterContext);
