@@ -32,7 +32,17 @@ namespace ExpenseSystem.Repositories
         public GetObjectResponse<Tag> GetById(int userId, int id)
         {
             var response = new GetObjectResponse<Tag>();
-            response.Object = context.Tags.FirstOrDefault(a => a.Id == id);
+
+            if (HasUserAccess(userId, id))
+            {
+                response.Object = context.Tags.FirstOrDefault(a => a.Id == id);
+            }
+            else
+            {
+                response.IsError = true;
+                response.Errors.Add(Error.UserDoesNotHaveAccess);
+            }
+
             return response;
         }
 
@@ -46,21 +56,30 @@ namespace ExpenseSystem.Repositories
         public AddResponse Add(int userId, string name, int parentId)
         {
             var addResponse = new AddResponse();
-            if (string.IsNullOrEmpty(name))
+            if (HasUserAccess(userId, parentId))
             {
-                addResponse.IsError = true;
-                addResponse.Errors.Add(Error.TagNameHasNotBeenSet);
+                if (string.IsNullOrEmpty(name))
+                {
+                    addResponse.IsError = true;
+                    addResponse.Errors.Add(Error.TagNameHasNotBeenSet);
+                }
+                else
+                {
+                    var tag = new Tag();
+                    tag.Parent = GetById(userId, parentId).Object;
+                    tag.Name = name;
+                    tag.User = new UserRepository(context).GetById(userId, userId).Object;
+                    context.Tags.AddObject(tag);
+                    context.Save();
+                    addResponse.Id = tag.Id;
+                }
             }
             else
             {
-                var tag = new Tag();
-                tag.Parent = GetById(userId, parentId).Object;
-                tag.Name = name;
-                tag.User = new UserRepository(context).GetById(userId, userId).Object;
-                context.Tags.AddObject(tag);
-                context.Save();
-                addResponse.Id = tag.Id;
+                addResponse.IsError = true;
+                addResponse.Errors.Add(Error.UserDoesNotHaveAccess);
             }
+
             return addResponse;
         }
 
@@ -73,11 +92,7 @@ namespace ExpenseSystem.Repositories
         public Response Delete(int userId, Tag entity)
         {
             var response = new Response();
-            if (entity == null)
-            {
-                response.Errors.Add(Error.TagNameHasNotBeenSet);
-            }
-            else
+            if (entity != null && HasUserAccess(userId, entity.Id))
             {
                 while (entity.Children.Count > 0)
                 {
@@ -86,6 +101,12 @@ namespace ExpenseSystem.Repositories
                 context.Tags.DeleteObject(entity);
                 context.Save();
             }
+            else
+            {
+                response.IsError = true;
+                response.Errors.Add(Error.UserDoesNotHaveAccess);
+            }
+            
             return response;
         }
 
@@ -111,17 +132,26 @@ namespace ExpenseSystem.Repositories
         public Response ChangeTagName(int userId, int tagId, string tagName)
         {
             var response = new Response();
-            if (string.IsNullOrEmpty(tagName))
+            if (HasUserAccess(userId, tagId))
             {
-                response.IsError = true;
-                response.Errors.Add(Error.TagNameHasNotBeenSet);
+                if (string.IsNullOrEmpty(tagName))
+                {
+                    response.IsError = true;
+                    response.Errors.Add(Error.TagNameHasNotBeenSet);
+                }
+                else
+                {
+                    var tag = GetById(userId, tagId).Object;
+                    tag.Name = tagName;
+                    context.Save();
+                }
             }
             else
             {
-                var tag = GetById(userId, tagId).Object;
-                tag.Name = tagName;
-                context.Save();
+                response.IsError = true;
+                response.Errors.Add(Error.UserDoesNotHaveAccess);
             }
+
             return response;
         }
 
@@ -158,17 +188,27 @@ namespace ExpenseSystem.Repositories
         public Response DeleteById(int userId, int tagId)
         {
             var response = new Response();
-            var tag = context.Tags.Where(a => a.Id == tagId).FirstOrDefault();
-            if (tag == null)
+            if (HasUserAccess(userId, tagId))
             {
-                response.IsError = true;
-                response.Errors.Add(Error.TagHasNotBeenSelected);
+                var tag = context.Tags.Where(a => a.Id == tagId).FirstOrDefault();
+                if (tag == null)
+                {
+                    response.IsError = true;
+                    response.Errors.Add(Error.TagHasNotBeenSelected);
+                }
+                else
+                {
+                    Delete(userId, tag);
+                    context.Save();
+                }  
             }
             else
             {
-                Delete(userId, tag);
-                context.Save();
-            }            
+                response.IsError = true;
+                response.Errors.Add(Error.UserDoesNotHaveAccess);
+            }
+
+          
             return response;
         }
 
@@ -184,14 +224,23 @@ namespace ExpenseSystem.Repositories
         public GetObjectResponse<string> GetTagFullName(int userId, int tagId)
         {
             var response = new GetObjectResponse<string>();
-            var tag = GetById(userId, tagId).Object;
-            response.Object = tag.Name;
-            var parent = tag.Parent;
-            while (parent != null && parent.Name != "ExpensesTag")
+            if (HasUserAccess(userId, tagId))
             {
-                response.Object = string.Format("{0}->", parent.Name) + response.Object;
-                parent = parent.Parent;
+                var tag = GetById(userId, tagId).Object;
+                response.Object = tag.Name;
+                var parent = tag.Parent;
+                while (parent != null && parent.Name != "ExpensesTag")
+                {
+                    response.Object = string.Format("{0}->", parent.Name) + response.Object;
+                    parent = parent.Parent;
+                }
             }
+            else
+            {
+                response.IsError = true;
+                response.Errors.Add(Error.UserDoesNotHaveAccess);
+            }
+            
             return response;
         }
 
@@ -205,14 +254,37 @@ namespace ExpenseSystem.Repositories
         /// <returns>Execution result with sum. by choosen tag</returns>
         public GetObjectResponse<decimal> GetSpentAmountByTag(int userId, int tagId, DateTime startDate, DateTime endDate)
         {
-            var tag = GetById(userId, tagId).Object;
             var response = new GetObjectResponse<decimal>();
-            response.Object = tag.ExpenseRecords.Where(a => a.DateStamp >= startDate && a.DateStamp <= endDate).Sum(a => a.Price);
-            foreach (var childTag in tag.Children)
+            if (HasUserAccess(userId, tagId))
             {
-                response.Object += GetSpentAmountByTag(userId, childTag.Id, startDate, endDate).Object;
+                var tag = GetById(userId, tagId).Object;
+                response.Object = tag.ExpenseRecords.Where(a => a.DateStamp >= startDate && a.DateStamp <= endDate).Sum(a => a.Price);
+                foreach (var childTag in tag.Children)
+                {
+                    response.Object += GetSpentAmountByTag(userId, childTag.Id, startDate, endDate).Object;
+                }
             }
+            else
+            {
+                response.IsError = true;
+                response.Errors.Add(Error.UserDoesNotHaveAccess);
+            }
+
             return response;
+        }
+
+        /// <summary>
+        /// Method verifies does user have permissions to edit tag or no
+        /// </summary>
+        /// <param name="userId">User identifier</param>
+        /// <param name="tagId">Tag identifier</param>
+        /// <returns>Exeuction result. If true then user has access to edit tag, otherwise it returns false</returns>
+        public bool HasUserAccess(int userId, int tagId)
+        {
+            return (from user in context.Users
+                    from tag in user.Tags
+                    where user.Id == userId && tag.Id == tagId
+                    select tag).Count() > 0 ? true : false;
         }
     }
 }

@@ -33,7 +33,15 @@ namespace ExpenseSystem.Repositories
         public GetObjectResponse<ExpenseRecord> GetById(int userId, int id)
         {
             var response = new GetObjectResponse<ExpenseRecord>();
-            response.Object = context.ExpenseRecords.FirstOrDefault(a => a.Id == id);
+            if (HasUserAccess(userId, id))
+            {
+                response.Object = context.ExpenseRecords.FirstOrDefault(a => a.Id == id);
+            }
+            else
+            {
+                response.IsError = true;
+                response.Errors.Add(Error.UserDoesNotHaveAccess);
+            }
             return response;
         }
 
@@ -69,8 +77,16 @@ namespace ExpenseSystem.Repositories
         public Response Delete(int userId, ExpenseRecord entity)
         {
             var response = new Response();
-            context.ExpenseRecords.DeleteObject(entity);
-            context.Save();
+            if (HasUserAccess(userId, entity.Id))
+            {
+                context.ExpenseRecords.DeleteObject(entity);
+                context.Save();
+            }
+            else
+            {
+                response.IsError = true;
+                response.Errors.Add(Error.UserDoesNotHaveAccess);
+            }
             return response;
         }
 
@@ -83,8 +99,18 @@ namespace ExpenseSystem.Repositories
         public GetObjectResponse<List<ExpenseRecord>> GetExpenseRecordsByTag(int userId, int tagId)
         {
             var response = new GetObjectResponse<List<ExpenseRecord>>();
+            
             var tagRepository = new TagRepository(context);
-            response.Object = tagRepository.GetById(userId, tagId).Object.ExpenseRecords.ToList();
+            
+            if (tagRepository.HasUserAccess(userId, tagId))
+            {
+                response.Object = tagRepository.GetById(userId, tagId).Object.ExpenseRecords.ToList();
+            }
+            else
+            {
+                response.IsError = true;
+                response.Errors.Add(Error.UserDoesNotHaveAccess);
+            }
             return response;
         }
 
@@ -128,7 +154,15 @@ namespace ExpenseSystem.Repositories
         public Response Delete(int userId, int expenseRecordId)
         {
             var response = new Response();
-            Delete(userId, GetById(userId, expenseRecordId).Object);
+            if (HasUserAccess(userId, expenseRecordId))
+            {
+                Delete(userId, GetById(userId, expenseRecordId).Object);
+            }
+            else
+            {
+                response.IsError = true;
+                response.Errors.Add(Error.UserDoesNotHaveAccess);
+            }
             return response;
         }
 
@@ -145,22 +179,46 @@ namespace ExpenseSystem.Repositories
         public Response Edit(int userId, int expenseRecordId, string description, decimal price, int tagId, DateTime? dateStamp)
         {
             var response = new Response();
-            if (string.IsNullOrEmpty(description) || price == 0 || tagId == 0 || dateStamp == null)
+            if (HasUserAccess(userId, expenseRecordId))
             {
-                response.IsError = true;
-                response.Errors.Add(Error.ExpenseRecordHasNotBeenSet);
+                if (string.IsNullOrEmpty(description) || price == 0 || tagId == 0 || dateStamp == null)
+                {
+                    response.IsError = true;
+                    response.Errors.Add(Error.ExpenseRecordHasNotBeenSet);
+                }
+                else
+                {
+                    var expenseRecord = GetById(userId, expenseRecordId).Object;
+                    var tagRepository = new TagRepository(context);
+                    expenseRecord.Tag = tagRepository.GetById(userId, tagId).Object;
+                    expenseRecord.Description = description;
+                    expenseRecord.Price = price;
+                    expenseRecord.DateStamp = (DateTime)dateStamp;
+                    context.Save();
+                }
             }
             else
             {
-                var expenseRecord = GetById(userId, expenseRecordId).Object;
-                var tagRepository = new TagRepository(context);
-                expenseRecord.Tag = tagRepository.GetById(userId, tagId).Object;
-                expenseRecord.Description = description;
-                expenseRecord.Price = price;
-                expenseRecord.DateStamp = (DateTime)dateStamp;
-                context.Save();
+                response.IsError = true;
+                response.Errors.Add(Error.UserDoesNotHaveAccess);
             }
+
             return response;
+        }
+
+        /// <summary>
+        /// Method verifies does user have permissions to edit tag or no
+        /// </summary>
+        /// <param name="userId">User identifier</param>
+        /// <param name="expenseRecordId">Tag identifier</param>
+        /// <returns>Exeuction result. If true then user has access to edit tag, otherwise it returns false</returns>
+        public bool HasUserAccess(int userId, int expenseRecordId)
+        {
+            return (from user in context.Users
+                    from tag in user.Tags
+                    from expenseRecord in tag.ExpenseRecords
+                    where user.Id == userId && expenseRecord.Id == expenseRecordId
+                    select expenseRecord).Count() > 0 ? true : false;
         }
     }
 }

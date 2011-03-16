@@ -5,7 +5,9 @@
   <Module PersistentId="9C2D0F74-FD72-4D85-BEB8-5EEB2D49C7DE" ModuleId="ExpenseSystem.Model" />
   <Module PersistentId="7F077652-AFEC-4AE5-9FEB-7CD150FB3786" ModuleId="ExpenseSystem.Behavior" />
   <Module PersistentId="014B0DAD-2C7B-4656-BBA2-81DF38DD1285" ModuleId="ExpenseSystem.Common" />
-  <Module PersistentId="Microsoft.Practices.Unity, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" ModuleId="Microsoft.Practices.Unity" />
+  <Module PersistentId="d:Miscellaneous Files" ModuleId="Microsoft.Practices.Unity" />
+  <Module PersistentId="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" ModuleId="mscorlib" />
+  <Module PersistentId="Microsoft.Practices.Unity, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" ModuleId="Microsoft.Practices.Unity_1" />
   <Module PersistentId="System.Data.Entity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" ModuleId="System.Data.Entity" />
   <Module PersistentId="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" ModuleId="System.Web.Mvc" />
   <Module PersistentId="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" ModuleId="System.Web.WebPages" />
@@ -48,12 +50,14 @@
   <Module PersistentId="System.Web.Services, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" ModuleId="System.Web.Services_1" />
   <Module PersistentId="System.EnterpriseServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" ModuleId="System.EnterpriseServices" />
   <Module PersistentId="System.EnterpriseServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" ModuleId="System.EnterpriseServices_1" />
+  <Module PersistentId="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" ModuleId="mscorlib_1" />
   <Module PersistentId="System.Runtime.Serialization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" ModuleId="System.Runtime.Serialization" />
   <Module PersistentId="System.Runtime.Serialization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" ModuleId="System.Runtime.Serialization_1" />
   <Module PersistentId="System.Security, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" ModuleId="System.Security" />
   <Module PersistentId="Machine.Specifications, Version=0.4.94.0, Culture=neutral" ModuleId="Machine.Specifications" />
   <Module PersistentId="Machine.Specifications.Mvc, Version=1.0.0.0, Culture=neutral" ModuleId="Machine.Specifications.Mvc" />
   <Module PersistentId="Moq, Version=3.1.416.3, Culture=neutral, PublicKeyToken=69f491c39445e920" ModuleId="Moq" />
+  <Module PersistentId="ExpenseSystem, Version=1.0.0.0, Culture=neutral" ModuleId="ExpenseSystem" />
   <Module PersistentId="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" ModuleId="Microsoft.Practices.ServiceLocation" />
   <Module PersistentId="System.IdentityModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" ModuleId="System.IdentityModel" />
   <Module PersistentId="System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" ModuleId="System.ServiceModel" />
@@ -64,9 +68,11 @@
   <Module PersistentId="System.WorkflowServices, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" ModuleId="System.WorkflowServices" />
   <Module PersistentId="System.Web.WebPages.Deployment, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" ModuleId="System.Web.WebPages.Deployment" />
   <Module PersistentId="JetBrains.Annotations, Version=5.1.3000.12, Culture=neutral, PublicKeyToken=1010a0d8d6380325" ModuleId="JetBrains.Annotations" />
-  <Module PersistentId="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" ModuleId="mscorlib" />
+  <Module PersistentId="ExpenseSystem.Entities, Version=1.0.0.0, Culture=neutral" ModuleId="ExpenseSystem.Entities_1" />
+  <Module PersistentId="ExpenseSystem.Common, Version=1.0.0.0, Culture=neutral" ModuleId="ExpenseSystem.Common_1" />
+  <Module PersistentId="ExpenseSystem.Model, Version=1.0.0.0, Culture=neutral" ModuleId="ExpenseSystem.Model_1" />
   <Module PersistentId="ExpenseSystem.Repositories, Version=1.0.0.0, Culture=neutral" ModuleId="ExpenseSystem.Repositories_1" />
-  <Module PersistentId="ExpenseSystem.Repositories, Version=1.0.0.0, Culture=neutral" ModuleId="ExpenseSystem.Repositories_2" />
+  <Module PersistentId="ExpenseSystem.Behaviour, Version=1.0.0.0, Culture=neutral" ModuleId="ExpenseSystem.Behaviour" />
   <Module PersistentId="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" ModuleId="Microsoft.Practices.ServiceLocation_1" />
   <Module PersistentId="919FD655-F067-4BA2-B932-D926E85DD6B4" ModuleId="Script Documents" />
 </Modules>

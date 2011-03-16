@@ -28,13 +28,8 @@ namespace ExpenseSystem.Controllers
                 var response = TagRepository.GetParentTagByUserId(SessionVars.UserId);
                 if (!response.IsError)
                     return View("~/Views/Home/Index.cshtml", response.Object);
-                else
-                    return null;
             }
-            else
-            {
-                return null;
-            }
+            return null;
         }
 
         /// <summary>

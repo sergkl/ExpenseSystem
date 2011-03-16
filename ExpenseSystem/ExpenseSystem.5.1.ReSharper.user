@@ -8,7 +8,6 @@
   </SettingsComponent>
   <RecentFiles>
     <RecentFiles>
-      <File id="7F077652-AFEC-4AE5-9FEB-7CD150FB3786/d:As an/d:account holder/d:I want/d:to add new expense record/d:When/f:I_provide_all_info_for_new_expense_record.cs" caret="13" fromTop="0" />
       <File id="7F077652-AFEC-4AE5-9FEB-7CD150FB3786/d:As an/d:account holder/d:I want/d:to add new expense record/d:When/f:I_provide_not_all_info_for_new_expense_record.cs" caret="1560" fromTop="19" />
       <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/d:Views/d:Expense/f:ExpenseRecordsPartial.cshtml" caret="57" fromTop="0" />
       <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/d:Scripts/d:ExpenseSystem/f:Home.js" caret="14844" fromTop="25" />
@@ -19,18 +18,12 @@
       <File id="DA504E0F-CE8B-4202-AD18-C39FDDF8241D/d:Interfaces/f:IExpenseRecordRepository.cs" caret="124" fromTop="0" />
       <File id="DA504E0F-CE8B-4202-AD18-C39FDDF8241D/d:Responses/f:CommonResponses.cs" caret="0" fromTop="0" />
       <File id="DA504E0F-CE8B-4202-AD18-C39FDDF8241D/d:Interfaces/f:ITagRepository.cs" caret="902" fromTop="9" />
-      <File id="DA504E0F-CE8B-4202-AD18-C39FDDF8241D/f:UserRepository.cs" caret="3642" fromTop="14" />
       <File id="DA504E0F-CE8B-4202-AD18-C39FDDF8241D/d:Interfaces/f:IUserRepository.cs" caret="490" fromTop="15" />
-      <File id="014B0DAD-2C7B-4656-BBA2-81DF38DD1285/f:Error.cs" caret="1115" fromTop="21" />
       <File id="DA504E0F-CE8B-4202-AD18-C39FDDF8241D/d:Responses/f:Response.cs" caret="311" fromTop="11" />
-      <File id="DA504E0F-CE8B-4202-AD18-C39FDDF8241D/f:TagRepository.cs" caret="4793" fromTop="9" />
       <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/d:ViewModels/d:Account/f:RegistrationViewModel.cs" caret="463" fromTop="13" />
-      <File id="DA504E0F-CE8B-4202-AD18-C39FDDF8241D/f:ExpenseRecordRepository.cs" caret="3130" fromTop="22" />
-      <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/d:Controllers/f:TagController.cs" caret="712" fromTop="15" />
       <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/f:Global.asax.cs" caret="384" fromTop="8" />
       <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/d:Helpers/f:SessionHelper.cs" caret="867" fromTop="0" />
       <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/f:ValidationAttributes.cs" caret="665" fromTop="18" />
-      <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/d:Controllers/f:AccountController.cs" caret="5984" fromTop="7" />
       <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/d:Extensions/f:Account.cs" caret="218" fromTop="8" />
       <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/d:Controllers/f:ExpenseController.cs" caret="1211" fromTop="15" />
       <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/d:ViewModels/d:Expense/f:ExpensesViewModel.cs" caret="288" fromTop="9" />
@@ -38,38 +31,45 @@
       <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/d:ViewModels/d:Report/f:TagResult.cs" caret="519" fromTop="16" />
       <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/d:Views/d:Report/f:Index.cshtml" caret="1198" fromTop="26" />
       <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/d:Content/d:Styles/f:ExpenseSystem.css" caret="1151" fromTop="12" />
+      <File id="014B0DAD-2C7B-4656-BBA2-81DF38DD1285/f:Error.cs" caret="1270" fromTop="23" />
+      <File id="7F077652-AFEC-4AE5-9FEB-7CD150FB3786/d:As an/d:account holder/d:I want/d:to add new expense record/d:When/f:I_provide_all_info_for_new_expense_record.cs" caret="165" fromTop="7" />
+      <File id="DA504E0F-CE8B-4202-AD18-C39FDDF8241D/f:ExpenseRecordRepository.cs" caret="8612" fromTop="16" />
+      <File id="DA504E0F-CE8B-4202-AD18-C39FDDF8241D/f:TagRepository.cs" caret="4226" fromTop="18" />
+      <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/d:Controllers/f:TagController.cs" caret="778" fromTop="17" />
+      <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/d:Controllers/f:AccountController.cs" caret="4566" fromTop="17" />
+      <File id="DA504E0F-CE8B-4202-AD18-C39FDDF8241D/f:UserRepository.cs" caret="2882" fromTop="28" />
     </RecentFiles>
     <RecentEdits>
-      <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/d:ViewModels/d:Expense/f:ExpensesViewModel.cs" caret="33" fromTop="0" />
-      <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/d:Extensions/f:Account.cs" caret="2337" fromTop="13" />
-      <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/d:Extensions/f:Account.cs" caret="2337" fromTop="13" />
-      <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/d:Extensions/f:Account.cs" caret="2337" fromTop="20" />
-      <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/d:Extensions/f:Account.cs" caret="1786" fromTop="11" />
-      <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/d:Extensions/f:Account.cs" caret="2337" fromTop="23" />
-      <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/d:Extensions/f:Account.cs" caret="1294" fromTop="19" />
-      <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/d:Extensions/f:Account.cs" caret="674" fromTop="8" />
-      <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/d:Extensions/f:Account.cs" caret="1294" fromTop="21" />
-      <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/d:Controllers/f:AccountController.cs" caret="1662" fromTop="10" />
-      <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/d:Helpers/f:SessionHelper.cs" caret="223" fromTop="8" />
-      <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/d:Helpers/f:SessionHelper.cs" caret="1938" fromTop="21" />
-      <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/d:Controllers/f:AccountController.cs" caret="5792" fromTop="15" />
-      <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/f:ValidationAttributes.cs" caret="158" fromTop="6" />
-      <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/f:ValidationAttributes.cs" caret="471" fromTop="12" />
-      <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/f:ValidationAttributes.cs" caret="665" fromTop="18" />
-      <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/d:Controllers/f:AccountController.cs" caret="6497" fromTop="15" />
-      <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/d:Controllers/f:AccountController.cs" caret="5984" fromTop="7" />
-      <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/d:Controllers/f:ExpenseController.cs" caret="1105" fromTop="12" />
-      <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/d:Controllers/f:ExpenseController.cs" caret="888" fromTop="7" />
-      <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/d:ViewModels/d:Expense/f:ExpensesViewModel.cs" caret="288" fromTop="10" />
-      <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/d:ViewModels/d:Expense/f:ExpensesViewModel.cs" caret="479" fromTop="17" />
-      <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/d:ViewModels/d:Expense/f:ExpensesViewModel.cs" caret="288" fromTop="9" />
-      <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/d:Views/d:Report/f:ReportBranchPartial.cshtml" caret="218" fromTop="6" />
-      <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/d:Views/d:Report/f:ReportBranchPartial.cshtml" caret="11" fromTop="0" />
-      <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/d:ViewModels/d:Report/f:TagResult.cs" caret="33" fromTop="0" />
-      <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/d:ViewModels/d:Report/f:TagResult.cs" caret="589" fromTop="18" />
-      <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/d:Content/d:Styles/f:ExpenseSystem.css" caret="1474" fromTop="22" />
-      <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/d:Content/d:Styles/f:ExpenseSystem.css" caret="1889" fromTop="27" />
-      <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/d:Content/d:Styles/f:ExpenseSystem.css" caret="1151" fromTop="12" />
+      <File id="DA504E0F-CE8B-4202-AD18-C39FDDF8241D/f:ExpenseRecordRepository.cs" caret="5961" fromTop="8" />
+      <File id="DA504E0F-CE8B-4202-AD18-C39FDDF8241D/f:ExpenseRecordRepository.cs" caret="8137" fromTop="13" />
+      <File id="DA504E0F-CE8B-4202-AD18-C39FDDF8241D/f:ExpenseRecordRepository.cs" caret="7963" fromTop="20" />
+      <File id="DA504E0F-CE8B-4202-AD18-C39FDDF8241D/f:ExpenseRecordRepository.cs" caret="7167" fromTop="7" />
+      <File id="DA504E0F-CE8B-4202-AD18-C39FDDF8241D/f:ExpenseRecordRepository.cs" caret="2744" fromTop="15" />
+      <File id="DA504E0F-CE8B-4202-AD18-C39FDDF8241D/f:TagRepository.cs" caret="1342" fromTop="22" />
+      <File id="DA504E0F-CE8B-4202-AD18-C39FDDF8241D/f:TagRepository.cs" caret="1168" fromTop="15" />
+      <File id="DA504E0F-CE8B-4202-AD18-C39FDDF8241D/f:TagRepository.cs" caret="1028" fromTop="13" />
+      <File id="DA504E0F-CE8B-4202-AD18-C39FDDF8241D/f:TagRepository.cs" caret="2569" fromTop="20" />
+      <File id="DA504E0F-CE8B-4202-AD18-C39FDDF8241D/f:TagRepository.cs" caret="2691" fromTop="25" />
+      <File id="DA504E0F-CE8B-4202-AD18-C39FDDF8241D/f:TagRepository.cs" caret="3220" fromTop="7" />
+      <File id="DA504E0F-CE8B-4202-AD18-C39FDDF8241D/f:TagRepository.cs" caret="3473" fromTop="14" />
+      <File id="DA504E0F-CE8B-4202-AD18-C39FDDF8241D/f:TagRepository.cs" caret="3659" fromTop="21" />
+      <File id="DA504E0F-CE8B-4202-AD18-C39FDDF8241D/f:TagRepository.cs" caret="5313" fromTop="17" />
+      <File id="DA504E0F-CE8B-4202-AD18-C39FDDF8241D/f:TagRepository.cs" caret="5139" fromTop="20" />
+      <File id="DA504E0F-CE8B-4202-AD18-C39FDDF8241D/f:TagRepository.cs" caret="4716" fromTop="11" />
+      <File id="DA504E0F-CE8B-4202-AD18-C39FDDF8241D/f:TagRepository.cs" caret="7038" fromTop="17" />
+      <File id="DA504E0F-CE8B-4202-AD18-C39FDDF8241D/f:TagRepository.cs" caret="7212" fromTop="24" />
+      <File id="DA504E0F-CE8B-4202-AD18-C39FDDF8241D/f:TagRepository.cs" caret="6607" fromTop="7" />
+      <File id="DA504E0F-CE8B-4202-AD18-C39FDDF8241D/f:TagRepository.cs" caret="8215" fromTop="18" />
+      <File id="DA504E0F-CE8B-4202-AD18-C39FDDF8241D/f:TagRepository.cs" caret="8401" fromTop="26" />
+      <File id="DA504E0F-CE8B-4202-AD18-C39FDDF8241D/f:TagRepository.cs" caret="7804" fromTop="10" />
+      <File id="DA504E0F-CE8B-4202-AD18-C39FDDF8241D/f:TagRepository.cs" caret="9480" fromTop="12" />
+      <File id="DA504E0F-CE8B-4202-AD18-C39FDDF8241D/f:TagRepository.cs" caret="9021" fromTop="7" />
+      <File id="DA504E0F-CE8B-4202-AD18-C39FDDF8241D/f:TagRepository.cs" caret="9066" fromTop="8" />
+      <File id="DA504E0F-CE8B-4202-AD18-C39FDDF8241D/f:TagRepository.cs" caret="1910" fromTop="15" />
+      <File id="3B99A118-943C-47DF-B458-9CA9AD2331B3/d:Controllers/f:TagController.cs" caret="1027" fromTop="22" />
+      <File id="DA504E0F-CE8B-4202-AD18-C39FDDF8241D/f:TagRepository.cs" caret="10041" fromTop="13" />
+      <File id="DA504E0F-CE8B-4202-AD18-C39FDDF8241D/f:ExpenseRecordRepository.cs" caret="8190" fromTop="19" />
+      <File id="DA504E0F-CE8B-4202-AD18-C39FDDF8241D/f:ExpenseRecordRepository.cs" caret="8560" fromTop="16" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>
@@ -87,14 +87,27 @@
     <ItemStatistics item="Default">
       <Item value="protected" priority="0" />
       <Item value="Error`0" priority="2" />
-      <Item value="else" priority="3" />
-      <Item value="true" priority="1" />
-      <Item value="private" priority="1" />
-      <Item value="return" priority="1" />
+      <Item value="else" priority="5" />
+      <Item value="true" priority="3" />
+      <Item value="private" priority="2" />
+      <Item value="return" priority="2" />
       <Item value="errors" priority="0" />
-      <Item value="if" priority="1" />
+      <Item value="if" priority="2" />
       <Item value="null" priority="2" />
-      <Item value="expenseRecords" priority="0" />
+      <Item value="expenseRecords" priority="1" />
+      <Item value="bool" priority="0" />
+      <Item value="int" priority="1" />
+      <Item value="join" priority="0" />
+      <Item value="context" priority="1" />
+      <Item value="on" priority="0" />
+      <Item value="tags`0" priority="0" />
+      <Item value="User`0" priority="0" />
+      <Item value="equals" priority="0" />
+      <Item value="expenseRecord" priority="0" />
+      <Item value="where" priority="0" />
+      <Item value="false" priority="0" />
+      <Item value="tagRepository" priority="0" />
+      <Item value="userId" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:ExpenseSystem.Repositories.Responses.Response">
       <Item value="Errors" priority="0" />
@@ -118,6 +131,35 @@
     </ItemStatistics>
     <ItemStatistics item="Qualified:@ExpenseSystem.Helpers.SessionHelper">
       <Item value="Clear`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ExpenseSystem.Model.ExpenseSystemEntities">
+      <Item value="Tags" priority="1" />
+      <Item value="Users" priority="1" />
+      <Item value="ExpenseRecords" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ExpenseSystem.Entities.User">
+      <Item value="Id" priority="2" />
+      <Item value="Tags" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ExpenseSystem.Entities.Tag">
+      <Item value="User" priority="0" />
+      <Item value="Id" priority="2" />
+      <Item value="ExpenseRecords" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ExpenseSystem.Entities.ExpenseRecord">
+      <Item value="Tag" priority="0" />
+      <Item value="Id" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Linq.IQueryable`1">
+      <Item value="Count`1" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ExpenseSystem.Repositories.Responses.GetObjectResponse`1">
+      <Item value="Equals`0" priority="0" />
+      <Item value="Errors" priority="0" />
+      <Item value="IsError" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ExpenseSystem.Repositories.TagRepository">
+      <Item value="HasUserAccess`0" priority="0" />
     </ItemStatistics>
   </CompletionStatisticsManager>
 </Configuration>

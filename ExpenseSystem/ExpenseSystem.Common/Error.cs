@@ -21,5 +21,6 @@ namespace ExpenseSystem.Common
         //Messages for expense record
         public const string ExpenseRecordHasNotBeenSet = "Expense record hasn't been set";
         public const string ExpenseRecordHasNotBeenSelected = "Expense record hasn't been selected";
+        public const string UserDoesNotHaveAccess = "User doesn't have access to work with the object(s)";
     }
 }
